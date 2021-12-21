@@ -1,0 +1,88 @@
+---
+let imgWidth = Astro.props.compact ? 150 : 400;
+---
+
+<header class={Astro.props.compact ? 'compact' : 'full'}>
+    <div class="text-container top">
+        <h2 class="shadow">Web Components...</h2>
+        <h2 class="text">Web Components...</h2>
+    </div>
+    <div class="text-container">
+        <h1 class="shadow">IN SPACE</h1>
+        <h1 class="text">IN SPACE</h1>
+    </div>
+    <img src="assets/spacelab.png" width={imgWidth}></img>
+</header>
+
+<style>
+    header {
+        font-family: ff-dax-compact-pro, sans-serif;
+        text-align: center;
+        font-weight: 900;
+        font-style: normal;
+        position: relative;
+        height: 370px;
+    }
+
+    header.compact {
+        height: 150px;
+    }
+
+    header img {
+        position: absolute;
+        margin-left: -290px;
+        margin-top: 45px;
+    }
+
+    header.compact img {
+        position: absolute;
+        margin-left: -110px;
+        margin-top: 35px;
+    }
+
+    header .text-container {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        perspective: 250px;
+    }
+
+    header h1.text,
+    header h2.text {
+        background: linear-gradient(0, #ffffff, #f1f107);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+
+    header h1.shadow {
+        text-shadow: 3px 3px #ff0000;
+    }
+
+    header h2.shadow {
+        text-shadow: 2px 2px #ff0000;
+    }
+
+    header h1,
+    header h2 {
+        position: absolute;
+    }
+
+    header h1 {
+        transform: rotateX(15deg);
+        font-size: 128px;
+    }
+
+    header.compact h1 {
+        font-size: 60px;
+    }
+
+    header h2 {
+        transform: rotateX(20deg);
+        font-size: 48px;
+    }
+
+    header.compact h2 {
+        font-size: 24px;
+    }
+</style>

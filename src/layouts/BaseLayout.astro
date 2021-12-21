@@ -1,0 +1,47 @@
+---
+// Component Imports
+import Stars from '../components/Stars.astro';
+import HeaderText from '../components/HeaderText.astro';
+
+let footerLinks = [
+    { label: 'Home', id: 'home', path: './' },
+    { label: 'About', id: 'about', path: 'about' },
+    { label: 'Episodes', id: 'episodes', path: 'episodes' },
+    { label: 'Latest', id: 'latest', path: 'episodes/s01e01' },
+];
+
+const current = footerLinks.findIndex((item) => item.id === Astro.props.page);
+if (current !== -1) {
+    footerLinks.splice(current, 1);
+}
+---
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" />
+    <title>{Astro.props.title}</title>
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+    <link rel="stylesheet" href="https://use.typekit.net/xdh3qei.css" />
+    <link rel="stylesheet" href={Astro.resolve('../styles/global.css')}>
+    {Astro.props.page === 'home' ? <link rel="stylesheet" href={Astro.resolve('../styles/home.css')}> : ''}
+</head>
+<body>
+<Stars />
+<main>
+    <a href="./">
+        <HeaderText compact={Astro.props.page !== 'home'} />
+    </a>
+    <section>
+        <slot />
+    </section>
+
+    <footer>
+        {footerLinks.map((item) => (
+            <span><a href={item.path}>{item.label}</a></span>
+        ))}
+    </footer>
+</main>
+</body>
+</html>
