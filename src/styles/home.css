@@ -1,3 +1,7 @@
 main {
   padding: 2rem 3rem;
 }
+
+main.home {
+  text-align: center;
+}

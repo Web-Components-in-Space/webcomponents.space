@@ -2,9 +2,52 @@
 import BaseLayout from '../layouts/BaseLayout.astro'
 ---
 <BaseLayout title="All Episodes of Web Components in Space" page="episodes">
-    <ul>
+    <ul class="episode-list">
         <li>
-            <strong>Episode 1:</strong> <a href="episodes/s01e01">First steps and Halftones...in Space!</a>
+        <strong>Episode 0:</strong> <a href="s01e00">Introducing Web Components...in Space!</a>
+        <p>
+            Web Components have been around in some form or another for a decade. But only in the past two years
+            have they really taken off and became a formidable tool in your front-end tech stack. Ben talks a bit
+            about their history, how they became fun to work with, and issues a dire warning and wild speculation
+            concerning their explosive growth.
+        </p>
+        <p>
+            This all leads to why Ben is up in space. And it makes perfect sense. No, really, it does.
+        </p>
+        </li>
+        <li>
+            <strong>Episode 1:</strong> <a href="s01e01">First steps and Halftones...in Space!</a>
+            <p>
+                Dmitry Baranovskiy joins us for our very first episode. We'll talk about his method of creating
+            halftone patterns, as well as his other experiments on ObservableHQ. We'll also go big with this first
+            episode and create an entire application using Lit, Web Dev Server, and Adobe's Spectrum Web Components.
+            </p>
+            <p>
+                Thanks to our AI powered friend, the "Web Compon-o-tron", Dmitry's halftone experiments have been turned
+                into a real Web Component we can use to create and render halftone patterns using a sample set of images,
+                ones we upload, or even your live webcam stream!
+            </p>
+        </li>
+        <li>
+            <strong>Episode 2:</strong> <a href="s01e02">Real-world issues and Doodles...in Space!</a>
+            <p>
+                In Episode 2 we are joined by Merl, the author of Shader Doodle. Shader Doodle is a fantastic Web Component
+                that lets you author WebGL based computer graphics without all the headache of setting up your canvas,
+                and managing lots of obscure WebGL program code. You simply focus on a fragment, and maybe a vertex shader
+                for the more complex scenes.
+            </p>
+            <p>
+                Again, we'll be creating another entire application from scratch with Lit, Web Dev Server, and Adobe's
+                Spectrum Web Components. This time however, we'll be flexing Web Dev Server's muscles a bit. The application
+                in episode one may have a been a bit too perfect. Our episode two application will explore some more
+                complicated setup as well be using Typescript, using (or pretending to use) real CSS files - no more CSS in JS.
+                We'll also have some unexpected hiccups with some libraries we use some extra Web Dev Server features to
+                step in and save the day.
+            </p>
+            <p>
+                Also, can AI have hurt feelings? Our "Web Compon-o-tron" might be a tad upset because Merl's Shader Doodle
+                is already a Web Component, and we won't be requesting it's services this episode.
+            </p>
         </li>
     </ul>
 </BaseLayout>

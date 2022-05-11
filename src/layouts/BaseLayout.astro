@@ -1,13 +1,15 @@
 ---
-// Component Imports
 import Stars from '../components/Stars.astro';
 import HeaderText from '../components/HeaderText.astro';
+
+import "../styles/home.css";
+import "../styles/global.css";
 
 let footerLinks = [
     { label: 'Home', id: 'home', path: './' },
     { label: 'About', id: 'about', path: 'about' },
     { label: 'Episodes', id: 'episodes', path: 'episodes' },
-    { label: 'Latest', id: 'latest', path: 'episodes/s01e01' },
+    { label: 'Latest', id: 'latest', path: 's01e02' },
 ];
 
 const current = footerLinks.findIndex((item) => item.id === Astro.props.page);
@@ -24,12 +26,10 @@ if (current !== -1) {
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
     <link rel="stylesheet" href="https://use.typekit.net/xdh3qei.css" />
-    <link rel="stylesheet" href={Astro.resolve('../styles/global.css')}>
-    {Astro.props.page === 'home' ? <link rel="stylesheet" href={Astro.resolve('../styles/home.css')}> : ''}
 </head>
 <body>
 <Stars />
-<main>
+<main class={Astro.props.page}>
     <a href="./">
         <HeaderText compact={Astro.props.page !== 'home'} />
     </a>
