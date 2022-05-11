@@ -6,9 +6,13 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "deploy": "node_modules/.bin/gh-pages -d dist"
   },
   "devDependencies": {
     "astro": "^1.0.0-beta.27"
+  },
+  "dependencies": {
+    "gh-pages": "^4.0.0"
   }
 }
