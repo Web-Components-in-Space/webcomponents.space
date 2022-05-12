@@ -50,7 +50,7 @@ body {
 }
 
 main {
-  padding: 0rem 3rem;
+  padding: 0 3rem;
 }
 
 footer {
@@ -81,8 +81,13 @@ code {
   padding: 7px;
 }
 
+h2 {
+  color: #f4f270;
+}
+
 ul {
   list-style: none;
+  padding: 0;
 }
 
 ul.episode-list > li {
@@ -104,4 +109,20 @@ footer a {
 
 footer span:not(:last-child):after {
   content: " | ";
+}
+
+img.github-logo,
+img.youtube-logo {
+  padding: 5px;
+  vertical-align: middle;
+}
+
+@media screen and (max-device-width: 400px) {
+  main {
+    padding: 0 .5rem;
+  }
+
+  section {
+    padding: .8em;
+  }
 }

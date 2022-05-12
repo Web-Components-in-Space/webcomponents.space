@@ -1,7 +1,3 @@
----
-let imgWidth = Astro.props.compact ? 150 : 400;
----
-
 <header class={Astro.props.compact ? 'compact' : 'full'}>
     <div class="text-container top">
         <h2 class="shadow">Web Components...</h2>
@@ -11,7 +7,7 @@ let imgWidth = Astro.props.compact ? 150 : 400;
         <h1 class="shadow">IN SPACE</h1>
         <h1 class="text">IN SPACE</h1>
     </div>
-    <img src="../assets/spacelab.png" width={imgWidth}></img>
+    <img src="../assets/spacelab.png"></img>
 </header>
 
 <style>
@@ -32,12 +28,14 @@ let imgWidth = Astro.props.compact ? 150 : 400;
         position: absolute;
         margin-left: -290px;
         margin-top: 45px;
+        width: 400px;
     }
 
     header.compact img {
         position: absolute;
         margin-left: -110px;
         margin-top: 35px;
+        width: 150px;
     }
 
     header .text-container {
@@ -84,5 +82,28 @@ let imgWidth = Astro.props.compact ? 150 : 400;
 
     header.compact h2 {
         font-size: 24px;
+    }
+
+
+    @media screen and (max-device-width: 400px) {
+        header h2 {
+            font-size: 24px;
+        }
+
+        header h1 {
+            font-size: 60px;
+        }
+
+        header {
+            height: 150px;
+        }
+
+        header img {
+            position: absolute;
+            margin-left: -110px;
+            margin-top: 35px;
+            width: 150px;
+        }
+
     }
 </style>
