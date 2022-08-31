@@ -4,28 +4,24 @@ import BaseLayout from '../layouts/BaseLayout.astro'
 <BaseLayout title="All Episodes of Web Components in Space" page="episodes">
     <ul class="episode-list">
         <li>
-        <strong>Episode 0:</strong> <a href="../s01e00">Introducing Web Components...in Space!</a>
-        <p>
-            Web Components have been around in some form or another for a decade. But only in the past two years
-            have they really taken off and became a formidable tool in your front-end tech stack. Ben talks a bit
-            about their history, how they became fun to work with, and issues a dire warning and wild speculation
-            concerning their explosive growth.
-        </p>
-        <p>
-            This all leads to why Ben is up in space. And it makes perfect sense. No, really, it does.
-        </p>
-        </li>
-        <li>
-            <strong>Episode 1:</strong> <a href="../s01e01">First steps and Halftones...in Space!</a>
+            <strong>Episode 3:</strong> <a href="../s01e03">Pose Capture with Tensorflow...in Space!</a>
             <p>
-                Dmitry Baranovskiy joins us for our very first episode. We'll talk about his method of creating
-            halftone patterns, as well as his other experiments on ObservableHQ. We'll also go big with this first
-            episode and create an entire application using Lit, Web Dev Server, and Adobe's Spectrum Web Components.
+                In this episode we dive into pose capture and pose visualization on a video or webcam using Tensorflow.js.
+                Luckily we are joined by developer advocate Jason Mayes from the Tensorflow team to get us up to speed.
             </p>
             <p>
-                Thanks to our AI powered friend, the "Web Compon-o-tron", Dmitry's halftone experiments have been turned
-                into a real Web Component we can use to create and render halftone patterns using a sample set of images,
-                ones we upload, or even your live webcam stream!
+                Unfortunately, some of the TFJS libraries can't be pulled in as normal ES modules, and
+                this causes our "Web Compon-o-tron" to break down. So, we're forced to make the pose capture components ourselves.
+            </p>
+            <p>
+                This is fine, though, because there are some good problems that come up when building a complicated component like this one.
+                We find that in order to do video playback we need to tweak our web-dev-server configuration a bit, we learn about subclassing events,
+                and explore slots as a way to add non-essential or optional UI. Also, without really any UI in our main components, we avoid helper
+                libraries like Lit and go completely vanilla with our Web Components.
+            </p>
+            <p>
+                Lastly, we attempt to use Rollup, not as a final build step, but to bundle the Tensorflow packages that crashed the "Web Compon-o-tron" and use them as trouble-free ES modules in
+                our development environment.
             </p>
         </li>
         <li>
@@ -48,6 +44,18 @@ import BaseLayout from '../layouts/BaseLayout.astro'
                 Also, can AI have hurt feelings? Our "Web Compon-o-tron" might be a tad upset because Merl's Shader Doodle
                 is already a Web Component, and we won't be requesting it's services this episode.
             </p>
+        </li>
+        <li>
+                <strong>Episode 0:</strong> <a href="../s01e00">Introducing Web Components...in Space!</a>
+                <p>
+                    Web Components have been around in some form or another for a decade. But only in the past two years
+                    have they really taken off and became a formidable tool in your front-end tech stack. Ben talks a bit
+                    about their history, how they became fun to work with, and issues a dire warning and wild speculation
+                    concerning their explosive growth.
+                </p>
+                <p>
+                    This all leads to why Ben is up in space. And it makes perfect sense. No, really, it does.
+                </p>
         </li>
     </ul>
 </BaseLayout>
