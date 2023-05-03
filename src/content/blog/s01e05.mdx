@@ -1,0 +1,124 @@
+---
+pubDatetime: 2023-01-25T15:00:00
+title: Season 1 Episode 5
+postSlug: s01e05
+featured: false
+tags:
+  - episode
+  - AI
+  - AI art
+  - stability.ai
+  - chrome extensions
+  - nodejs
+
+description: In this episode we chat with Christian Cantrell from Stability.ai, and make a Chrome plugin to take accessibility text from images on website and use that to create AI generated images.
+---
+import socialIcons from "@assets/socialIcons";
+import LinkButton from "../../components/LinkButton.astro";
+
+<ul class="episode-list">
+    <li>
+        <h2>
+              <LinkButton
+                target="_blank"
+                href="https://www.youtube.com/playlist?list=PLtQN1dImn5UUjtiVmMwtQDUYe1G7c9HNP"
+                className="link-button"
+                title={"Watch all of Episode 5"}
+              >
+                <Fragment set:html={socialIcons['YouTube']} />
+              </LinkButton>
+              <span> Episode 5:</span>
+        </h2>
+        <strong>Watch all of Episode 5</strong>
+        <p>
+            Play this playlist for the intro, the run-down on what we'll learn and do in Episode 5, the show and tell,
+            the interview, and our experiment with SimplyRecipes.com to generate AI images from their accessibility text.
+            <ul>
+                <li><a target="_blank" href="https://github.com/Web-Components-in-Space/image-replace" target="_blank">Image Replace</a></li>
+            </ul>
+        </p>
+    </li>
+    <li>
+        <h2>
+              <LinkButton
+                target="_blank"
+                href="https://youtu.be/KaWjxCh4kmY"
+                className="link-button"
+                title={"Run-down"}
+              >
+                <Fragment set:html={socialIcons['YouTube']} />
+              </LinkButton>
+              <span> Episode 5.1:</span>
+        </h2>
+        <strong>Run-down</strong>
+        <p>
+            Ben gives a quick run-down on what we'll learn and build today, the technologies we'll use, who we'll
+            be talking to, and what they built.
+        </p>
+        <p>
+            Tools and technology we'll use today:
+        </p>
+        <ul>
+            <li><a target="_blank" href="https://github.com/Stability-AI/stablediffusion">Stable Diffusion</a></li>
+            <li><a target="_blank" href="https://developer.chrome.com/docs/extensions">Chrome Extensions</a></li>
+            <li><a target="_blank" href="https://nodejs.org/">Node.js</a></li>
+        </ul>
+    </li>
+    <li>
+        <h2>
+              <LinkButton
+                target="_blank"
+                href="https://youtu.be/RlMe9SPaXgk"
+                className="link-button"
+                title={"Interview with Christian Cantrell"}
+              >
+                <Fragment set:html={socialIcons['YouTube']} />
+              </LinkButton>
+              <span> Episode 5.2:</span>
+        </h2>
+        <strong>Interview with Christian Cantrell</strong>
+        <p>
+            Ben sits down with Christian Cantrell who describes his day-job as the intersection of creativity and AI. He's the VP of Product for Stability.ai. We chat about
+            how Stable Diffusion could be changing creative output, and delve into his writing process using image generation. We also talk a bit about Stability.ai and it's
+            role in offering APIs to empower all of this.
+        </p>
+    </li>
+    <li>
+        <h2>
+              <LinkButton
+                target="_blank"
+                href="https://youtu.be/5kpkHkss4Go"
+                className="link-button"
+                title={"Show &amp; Tell"}
+              >
+                <Fragment set:html={socialIcons['YouTube']} />
+              </LinkButton>
+              <span> Episode 5.3:</span>
+        </h2>
+        <strong>Show &amp; Tell</strong>
+        <p>
+            Due to unforeseen circumstances, Ben and his space lab come crashing back down to Earth. An effort is made to depict this with AI generated art
+            using Stable Diffusion. Once Ben is in the safety of his home office, he talks about running Stable Diffusion locally on an M1 based Macbook Pro,
+            using Node.js as a server to make the call into Python and Stable Diffusion, and finally replacing an image tag on a web page with a custom made Web
+            Component that loads the AI generated image. All of this is done with a hand rolled Chrome Extension. We'll cover it all!
+        </p>
+    </li>
+    <li>
+        <h2>
+              <LinkButton
+                target="_blank"
+                href="https://youtu.be/Fs_8wb2RFxs"
+                className="link-button"
+                title={"Orange Breakfast Rolls"}
+              >
+                <Fragment set:html={socialIcons['YouTube']} />
+              </LinkButton>
+              <span> Episode 5.4:</span>
+        </h2>
+        <strong>Orange Breakfast Rolls</strong>
+        <p>
+            In this video, we turn to simplyrecipes.com and their recipe for orange breakfast rolls. We use our new Chrome Extension to swap images with those
+            generated by Stable Diffusion using Simply Recipe's own accessibility text.
+        </p>
+    </li>
+    </ul>
