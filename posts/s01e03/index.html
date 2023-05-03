@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><style>:where(img){height:auto}</style>
+    <meta charset="UTF-8">
+    <meta content="width=device-width" name="viewport">
+    <link href="/favicon.svg" rel="icon" type="image/svg+xml">
+    <link href="https://webcomponents.space/posts/s01e03/" rel="canonical">
+    <meta content="Astro v2.3.4" name="generator">
+
+    <!-- General Meta Tags -->
+    <title>Season 1 Episode 3</title>
+    <meta content="Season 1 Episode 3" name="title">
+    <meta content="Ben chats with Jason Mayes from Google about TensorFlow.js and then we make a pose recording application" name="description">
+    <meta content="Ben Farrell" name="author">
+
+    <!-- Open Graph / Facebook -->
+    <meta content="Season 1 Episode 3" property="og:title">
+    <meta content="Ben chats with Jason Mayes from Google about TensorFlow.js and then we make a pose recording application" property="og:description">
+    <meta content="https://webcomponents.space/posts/s01e03/" property="og:url">
+    <meta content="https://webcomponents.space/Season%201%20Episode%203.png" property="og:image">
+
+    <!-- Twitter -->
+    <meta content="summary_large_image" property="twitter:card">
+    <meta content="https://webcomponents.space/posts/s01e03/" property="twitter:url">
+    <meta content="Season 1 Episode 3" property="twitter:title">
+    <meta content="Ben chats with Jason Mayes from Google about TensorFlow.js and then we make a pose recording application" property="twitter:description">
+    <meta content="https://webcomponents.space/Season%201%20Episode%203.png" property="twitter:image">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+
+    
+
+    <script src="/toggle-theme.js"></script>
+  <link href="/_astro/about.f67e52a0.css" rel="stylesheet">
+<link href="/_astro/about.48d1af8d.css" rel="stylesheet">
+<link href="/_astro/_slug_.77c27b8f.css" rel="stylesheet">
+<link href="/_astro/_slug_.41a32359.css" rel="stylesheet">
+<link href="/_astro/LinkButton.astro_astro_type_style_index_0_lang.18333935.css" rel="stylesheet">
+<link href="/_astro/_slug_.3b14054e.css" rel="stylesheet">
+<link href="/_astro/_slug_.ce5ea344.css" rel="stylesheet"><script src="/_astro/hoisted.a0e05e0f.js" type="module"></script></head>
+  <body>
+    
+  <header class="astro-3EF6KSR2">
+  <a href="#main-content" class="astro-3EF6KSR2" id="skip-to-content">Skip to content</a>
+  <div class="astro-3EF6KSR2 nav-container">
+    <div class="astro-3EF6KSR2 top-nav-wrap">
+      <a href="/" class="astro-3EF6KSR2 logo">
+        <img alt="AstroPaper Logo" class="astro-3EF6KSR2" decoding="async" fetchpriority="high" height="46" src="/assets/logo.svg.svg" width="216">
+      </a>
+      <nav class="astro-3EF6KSR2" id="nav-menu">
+        <button class="astro-3EF6KSR2 focus-outline hamburger-menu" aria-controls="menu-items" aria-expanded="false" aria-label="Open Menu">
+          <svg class="astro-3EF6KSR2 menu-icon" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" fill="none" height="24" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24" width="24">
+            <line x1="7" x2="21" y1="12" y2="12" class="astro-3EF6KSR2 line"/>
+            <line x1="3" x2="21" y1="6" y2="6" class="astro-3EF6KSR2 line"/>
+            <line x1="12" x2="21" y1="18" y2="18" class="astro-3EF6KSR2 line"/>
+            <line x1="18" x2="6" y1="6" y2="18" class="astro-3EF6KSR2 close"/>
+            <line x1="6" x2="18" y1="6" y2="18" class="astro-3EF6KSR2 close"/>
+          </svg>
+        </button>
+        <ul class="astro-3EF6KSR2 display-none sm:flex" id="menu-items">
+          <li class="astro-3EF6KSR2">
+              <a href="/rss.xml" class="astro-3EF6KSR2 rss-link" title="RSS Feed" aria-label="rss feed" target="_blank">
+                <svg class="astro-3EF6KSR2 rss-icon" xmlns="http://www.w3.org/2000/svg"><path d="M19 20.001C19 11.729 12.271 5 4 5v2c7.168 0 13 5.832 13 13.001h2z" class="astro-3EF6KSR2"/><path d="M12 20.001h2C14 14.486 9.514 10 4 10v2c4.411 0 8 3.589 8 8.001z" class="astro-3EF6KSR2"/><circle class="astro-3EF6KSR2" cx="6" cy="18" r="2"/>
+                </svg>
+              </a>
+          </li>
+          <li class="astro-3EF6KSR2">
+            <a href="/posts" class="astro-3EF6KSR2">
+              Posts
+            </a>
+          </li>
+          <li class="astro-3EF6KSR2">
+            <a href="/tags" class="astro-3EF6KSR2">
+              Tags
+            </a>
+          </li>
+          <li class="astro-3EF6KSR2">
+            <a href="/about" class="astro-3EF6KSR2">
+              About
+            </a>
+          </li>
+          <li class="astro-3EF6KSR2">
+            <a href="/search" class="inline-block astro-5EUNQZKT group astro-3EF6KSR2 focus-outline p-3 sm:p-1" title="Search" tabindex="0" aria-label="search">
+  
+              <svg class="astro-3EF6KSR2 scale-125 sm:scale-100" xmlns="http://www.w3.org/2000/svg"><path d="M19.023 16.977a35.13 35.13 0 0 1-1.367-1.384c-.372-.378-.596-.653-.596-.653l-2.8-1.337A6.962 6.962 0 0 0 16 9c0-3.859-3.14-7-7-7S2 5.141 2 9s3.14 7 7 7c1.763 0 3.37-.66 4.603-1.739l1.337 2.8s.275.224.653.596c.387.363.896.854 1.384 1.367l1.358 1.392.604.646 2.121-2.121-.646-.604c-.379-.372-.885-.866-1.391-1.36zM9 14c-2.757 0-5-2.243-5-5s2.243-5 5-5 5 2.243 5 5-2.243 5-5 5z" class="astro-3EF6KSR2"/>
+              </svg>
+            
+</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="max-w-3xl mx-auto px-0">
+  <hr aria-hidden="true" class="border-skin-line">
+</div>
+</header>
+  <div class="astro-VJ4TPSPI flex justify-start max-w-3xl mx-auto px-2 w-full">
+    <button class="astro-VJ4TPSPI flex focus-outline hover:opacity-75 mb-2 mt-8" onclick="history.back()">
+      <svg class="astro-VJ4TPSPI" xmlns="http://www.w3.org/2000/svg"><path d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z" class="astro-VJ4TPSPI"/>
+      </svg><span class="astro-VJ4TPSPI">Go back</span>
+    </button>
+  </div>
+  <main class="astro-VJ4TPSPI" id="main-content">
+    <h1 class="astro-VJ4TPSPI post-title">Season 1 Episode 3</h1>
+    <div class="astro-VJ4TPSPI flex items-center my-2 opacity-80 space-x-2"><svg class="inline-block fill-skin-base h-6 scale-100 w-6" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M7 11h2v2H7zm0 4h2v2H7zm4-4h2v2h-2zm0 4h2v2h-2zm4-4h2v2h-2zm0 4h2v2h-2z"/><path d="M5 22h14c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2h-2V2h-2v2H9V2H7v2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2zM19 8l.001 12H5V8h14z"/></svg><span class="sr-only">Posted on:</span><span class="italic text-base">August 30, 2022<span aria-hidden="true"> | </span><span class="sr-only"> at </span>03:00 PM</span></div>
+    <article class="astro-VJ4TPSPI max-w-3xl mx-auto mt-8 prose" id="article" role="article">
+      <ul class="episode-list"><li><h2><a href="https://www.youtube.com/playlist?list=PLtQN1dImn5UXDJkjgeCkTovJG054y_SWZ" class="inline-block astro-5EUNQZKT group link-button" title="Watch all of Episode 3" tabindex="0">
+  <svg class="icon-tabler" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/>
+      <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/>
+    </svg>
+</a><span> Episode 3:</span></h2><strong>Watch all of Episode 3</strong><p></p><p>Play this playlist for the intro, the run-down on what we’ll learn and do in Episode 3, the show and tell,
+the interview, and the eight part lab.</p><ul><li><a href="https://www.npmjs.com/package/pose-capture" target="_blank">Pose Capture on NPM</a></li><li><a href="https://github.com/Web-Components-in-Space/S01E03-PoseTracking" target="_blank">Demo App</a></li></ul><p></p></li><li><h2><a href="https://youtu.be/5p4wjxV3vO8" class="inline-block astro-5EUNQZKT group link-button" title="Run-down" tabindex="0">
+  <svg class="icon-tabler" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/>
+      <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/>
+    </svg>
+</a><span> Episode 3.1:</span></h2><strong>Run-down</strong><p></p><p>Ben gives a quick run-down on what we’ll learn and build today, the technologies we’ll use, who we’ll
+be talking to and what they built.</p><p></p><p></p><p>Tools and technology we’ll use today:</p><p></p><ul><li><a href="https://www.tensorflow.org/js" target="_blank">TensorFlow.js</a></li><li><a href="https://lit.dev/" target="_blank">Lit</a></li><li><a href="https://modern-web.dev/docs/dev-server/overview/" target="_blank">Web Dev Server</a></li></ul></li><li><h2><a href="https://youtu.be/r7gVUjN6ym0" class="inline-block astro-5EUNQZKT group link-button" title="Show &#38;amp; Tell" tabindex="0">
+  <svg class="icon-tabler" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/>
+      <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/>
+    </svg>
+</a><span> Episode 3.2:</span></h2><strong>Show &amp; Tell</strong><p></p><p>Ben shows off some Tensorflow.js pose capture demos including bodypose, facemesh, and handpose before sitting down to chat with Google’s Developer Evangelist. And then, of course, he gets caught up in animating
+himself as an SVG boy with <a href="https://github.com/yemount/pose-animator">https://github.com/yemount/pose-animator</a>.</p><p></p></li><li><h2><a href="https://youtu.be/AHXLNhDrAhM" class="inline-block astro-5EUNQZKT group link-button" title="Interview with Jason Mayes" tabindex="0">
+  <svg class="icon-tabler" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/>
+      <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/>
+    </svg>
+</a><span> Episode 3.3:</span></h2><strong>Interview with Jason Mayes</strong><p></p><p>Ben chats with Tensorflow.js’s lead developer advocate to find out what TFJS can do from an easy but incredibly useful hello world application, all the way to the cutting edge of what ML can do today.
+Jason Mayes talks all about his early days on the WebML creating superpowers on the web as well as his lifelong goals of taking to the skies in every way possible.</p><p></p><p></p><p>Links:</p><p></p><ul><li><a href="https://www.tensorflow.org/js" target="_blank">TensorFlow.js</a></li><li><a href="https://huggingface.co" target="_blank">Hugging Face</a></li><li><a href="https://teachablemachine.withgoogle.com" target="_blank">Teachable Machine</a></li><li><a href="https://magenta.tensorflow.org" target="_blank">Magenta</a></li><li><a href="https://mubert.com" target="_blank">Mubert</a></li><li><a href="https://goo.gle/learn-tfjs" target="_blank">Jason’s EdX Course</a></li></ul></li><li><h2><a href="https://youtu.be/ROips386H-M" class="inline-block astro-5EUNQZKT group link-button" title="Lab Step 1 - Project Templates" tabindex="0">
+  <svg class="icon-tabler" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/>
+      <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/>
+    </svg>
+</a><a href="https://github.com/Web-Components-in-Space/pose-capture/tree/step1" class="inline-block astro-5EUNQZKT group link-button" title="Step 1 Code" tabindex="0">
+  <svg class="icon-tabler" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M0 0h24v24H0z" fill="none" stroke="none"/>
+    <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"/>
+  </svg>
+</a><span> Episode 3.4:</span></h2><strong>Lab Step 1 - Project Templates</strong><p></p><p>This time we’re using a template/starter project and not starting from an empty project. We try out both OpenWC’s generator (<a href="https://open-wc.org/docs/development/generator/">https://open-wc.org/docs/development/generator/</a>) and Lit’s
+Typescript project template (<a href="https://github.com/lit/lit-element-starter-ts">https://github.com/lit/lit-element-starter-ts</a>).</p><p></p><p></p><p>Each starter kit comes with a way to create docs, and so we go through a quick review of how either Storybook or 11ty docs are generated.</p><p></p></li><li><h2><a href="https://youtu.be/yZSFfIeaAKM" class="inline-block astro-5EUNQZKT group link-button" title="Lab Step 2 - Making a video player" tabindex="0">
+  <svg class="icon-tabler" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/>
+      <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/>
+    </svg>
+</a><a href="https://github.com/Web-Components-in-Space/pose-capture/tree/step2" class="inline-block astro-5EUNQZKT group link-button" title="Step 2 Code" tabindex="0">
+  <svg class="icon-tabler" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M0 0h24v24H0z" fill="none" stroke="none"/>
+    <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"/>
+  </svg>
+</a><span> Episode 3.5:</span></h2><strong>Lab Step 2 - Making a video player</strong><p></p><p>It’s time to start building out our first component to simply play video, and we do this by building off of and changing what the Lit template provides.
+We also discuss building this component with Web Standard APIs only - specifically, not using Lit here because it doesn’t make sense in the context of not
+that much DOM or UI controls. But with that comes a little extra work that Lit would typically smooth over for us.</p><p></p><p></p><p>After taking the first stab at a video player, we tweak the Lit provided dev demo page to show our component off during development!
+Next, we organize some of our transpiled source. It gets sent to the root of the project and isn’t intended to be published, so we edit our
+.gitignore file a bit to reflect that.</p><p></p></li><li><h2><a href="https://youtu.be/JoRljmIq7mg" class="inline-block astro-5EUNQZKT group link-button" title="Lab Step 3 - Adding the player controls" tabindex="0">
+  <svg class="icon-tabler" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/>
+      <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/>
+    </svg>
+</a><a href="https://github.com/Web-Components-in-Space/pose-capture/tree/step3" class="inline-block astro-5EUNQZKT group link-button" title="Step 3 Code" tabindex="0">
+  <svg class="icon-tabler" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M0 0h24v24H0z" fill="none" stroke="none"/>
+    <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"/>
+  </svg>
+</a><span> Episode 3.6:</span></h2><strong>Lab Step 3 - Adding the player controls</strong><p></p><p>In this step we create some playback controls. This is the one piece that we DO use Google’s Lit for. It’s helpful in terms of several
+stateful UI controls we have here. But, it’s the only place we do use Lit, and these playback controls are actually optional for the larger
+video player component. These controls are enabled by the developer putting them into the video component tag as a child (or not). This is enabled
+by using “slots” in our video component.</p><p></p><p></p><p>As we wire up events on these UI controls, the concept of subclassed events are introduced. These are much better than the old way of creating
+custom events, in that the subclassed Event can contain custom logic and functionality right inside of the event, rather than logic spread all over
+the place as we did before.</p><p></p></li><li><h2><a href="https://youtu.be/VUvnCC4efMk" class="inline-block astro-5EUNQZKT group link-button" title="Lab Step 4 - Fixing timeline scrubbing" tabindex="0">
+  <svg class="icon-tabler" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/>
+      <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/>
+    </svg>
+</a><a href="https://github.com/Web-Components-in-Space/pose-capture/tree/step4" class="inline-block astro-5EUNQZKT group link-button" title="Step 4 Code" tabindex="0">
+  <svg class="icon-tabler" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M0 0h24v24H0z" fill="none" stroke="none"/>
+    <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"/>
+  </svg>
+</a><span> Episode 3.7:</span></h2><strong>Lab Step 4 - Fixing timeline scrubbing</strong><p></p><p>It turns out that our video player can’t scrub properly because of the lack of partial range requests on web-dev-server. This is fairly unique to our dev
+environment. And it turns out that we can install some middleware to handle this. We can grab this from a number of Koa.js packages listed on Koa’s github page,
+and this is because web-dev-server is actually based on Koa.js</p><p></p></li><li><h2><a href="https://youtu.be/HfomwLL_9sI" class="inline-block astro-5EUNQZKT group link-button" title="Lab Step 5 - Working with TFJS as an ES Module" tabindex="0">
+  <svg class="icon-tabler" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/>
+      <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/>
+    </svg>
+</a><a href="https://github.com/Web-Components-in-Space/pose-capture/tree/step5" class="inline-block astro-5EUNQZKT group link-button" title="Step 5 Code" tabindex="0">
+  <svg class="icon-tabler" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M0 0h24v24H0z" fill="none" stroke="none"/>
+    <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"/>
+  </svg>
+</a><span> Episode 3.8:</span></h2><strong>Lab Step 5 - Working with TFJS as an ES Module</strong><p></p><p>Here’s the part that broke the Web Compon-o-tron! Tensorflow.js has some difficulties being imported as an ES Module, so we’re going to try a Rollup bundling step of just those TFJS libraries
+to get it working in our project, and we’ll have these bundled imports as source files that we can import easily.</p><p></p></li><li><h2><a href="https://youtu.be/oRG5NmNsKuI" class="inline-block astro-5EUNQZKT group link-button" title="Lab Step 6 - Realtime Pose detection" tabindex="0">
+  <svg class="icon-tabler" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/>
+      <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/>
+    </svg>
+</a><a href="https://github.com/Web-Components-in-Space/pose-capture/tree/step6" class="inline-block astro-5EUNQZKT group link-button" title="Step 6 Code" tabindex="0">
+  <svg class="icon-tabler" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M0 0h24v24H0z" fill="none" stroke="none"/>
+    <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"/>
+  </svg>
+</a><span> Episode 3.9:</span></h2><strong>Lab Step 6 - Realtime Pose detection</strong><p></p><p>In this step we extend our object oriented hierarchy further. We build on top of video-element to create a videopose-element, and extend THAT out to create our specific pose solutions for hands, face, and body.
+We get all of these Tensorflow models working with a live HTML5 video element as the source. This means realtime pose detection! We also normalize the points that are coming from these TFJS models
+such that they all follow a similar format. This will be important in the final steps!</p><p></p></li><li><h2><a href="https://youtu.be/W1ZMXCTcceQ" class="inline-block astro-5EUNQZKT group link-button" title="Lab Step 7 - Visualization and Pose Playback" tabindex="0">
+  <svg class="icon-tabler" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/>
+      <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/>
+    </svg>
+</a><a href="https://github.com/Web-Components-in-Space/pose-capture/tree/step7" class="inline-block astro-5EUNQZKT group link-button" title="Step 7 Code" tabindex="0">
+  <svg class="icon-tabler" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M0 0h24v24H0z" fill="none" stroke="none"/>
+    <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"/>
+  </svg>
+</a><span> Episode 3.10:</span></h2><strong>Lab Step 7 - Visualization and Pose Playback</strong><p></p><p>In this (almost) final step, we begin with all of our TFJS pose models working, but they only appear in the console. So now, we build out a visualization canvas to overlay over
+our video. This is another optional layer we can choose (or choose not) to add as a child element which occupies the slot of our component.</p><p></p><p></p><p>We also try out the record function of our component and can download a full recording, with audio if preferred, of the pose we capture. Like where we started this step, just
+seeing data in the console, this download is just points. So we finish up by build another video-like player, but this player plays back just the captured points with an audio track
+if captured.</p><p></p><p></p><p>With everything fully working, we could almost end here, but there are some final steps to make this ready to publish on NPM and consume in an application.</p><p></p></li><li><h2><a href="https://youtu.be/SKwqo9Zb6gc" class="inline-block astro-5EUNQZKT group link-button" title="Lab Step 8 - Prepping for Publishing" tabindex="0">
+  <svg class="icon-tabler" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/>
+      <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/>
+    </svg>
+</a><span> Episode 3.11:</span></h2><strong>Lab Step 8 - Prepping for Publishing</strong><p></p><p>This final step is basically just the main branch of this project, so, no github link for this specific step. There were only a couple of things to wrap up this set of
+TFJS pose detection components. First, we needed to make sure our Rollup bundled Tensorflow modules can be consumed from both the “src” folder for dev, and from the root of the project
+when using the component.</p><p></p><p></p><p>And then finally to close things out, we dive into creating documentation with the 11ty static site generator (<a href="https://www.11ty.dev">https://www.11ty.dev</a>), and I show off a simple demo app that
+consumes our new set of motion capture components.</p><p></p><ul><li><a href="https://www.npmjs.com/package/pose-capture" target="_blank">Pose Capture on NPM</a></li><li><a href="https://github.com/Web-Components-in-Space/S01E03-PoseTracking" target="_blank">Demo App</a></li></ul></li></ul>
+    </article>
+
+    <ul class="astro-VJ4TPSPI tags-container">
+      <li class="astro-BLWJYJPT inline-block my-1 underline-offset-4">
+  <a href="/tags/episode" class="astro-BLWJYJPT group pr-2 text-sm">
+    <svg class="astro-BLWJYJPT scale-75" xmlns="http://www.w3.org/2000/svg"><path d="M16.018 3.815 15.232 8h-4.966l.716-3.815-1.964-.37L8.232 8H4v2h3.857l-.751 4H3v2h3.731l-.714 3.805 1.965.369L8.766 16h4.966l-.714 3.805 1.965.369.783-4.174H20v-2h-3.859l.751-4H21V8h-3.733l.716-3.815-1.965-.37zM14.106 14H9.141l.751-4h4.966l-.752 4z" class="astro-BLWJYJPT"/>
+    </svg>
+    &nbsp;<span class="astro-BLWJYJPT">episode</span>
+  </a>
+</li><li class="astro-BLWJYJPT inline-block my-1 underline-offset-4">
+  <a href="/tags/tensorflow" class="astro-BLWJYJPT group pr-2 text-sm">
+    <svg class="astro-BLWJYJPT scale-75" xmlns="http://www.w3.org/2000/svg"><path d="M16.018 3.815 15.232 8h-4.966l.716-3.815-1.964-.37L8.232 8H4v2h3.857l-.751 4H3v2h3.731l-.714 3.805 1.965.369L8.766 16h4.966l-.714 3.805 1.965.369.783-4.174H20v-2h-3.859l.751-4H21V8h-3.733l.716-3.815-1.965-.37zM14.106 14H9.141l.751-4h4.966l-.752 4z" class="astro-BLWJYJPT"/>
+    </svg>
+    &nbsp;<span class="astro-BLWJYJPT">tensorflow</span>
+  </a>
+</li><li class="astro-BLWJYJPT inline-block my-1 underline-offset-4">
+  <a href="/tags/google" class="astro-BLWJYJPT group pr-2 text-sm">
+    <svg class="astro-BLWJYJPT scale-75" xmlns="http://www.w3.org/2000/svg"><path d="M16.018 3.815 15.232 8h-4.966l.716-3.815-1.964-.37L8.232 8H4v2h3.857l-.751 4H3v2h3.731l-.714 3.805 1.965.369L8.766 16h4.966l-.714 3.805 1.965.369.783-4.174H20v-2h-3.859l.751-4H21V8h-3.733l.716-3.815-1.965-.37zM14.106 14H9.141l.751-4h4.966l-.752 4z" class="astro-BLWJYJPT"/>
+    </svg>
+    &nbsp;<span class="astro-BLWJYJPT">google</span>
+  </a>
+</li><li class="astro-BLWJYJPT inline-block my-1 underline-offset-4">
+  <a href="/tags/rollup" class="astro-BLWJYJPT group pr-2 text-sm">
+    <svg class="astro-BLWJYJPT scale-75" xmlns="http://www.w3.org/2000/svg"><path d="M16.018 3.815 15.232 8h-4.966l.716-3.815-1.964-.37L8.232 8H4v2h3.857l-.751 4H3v2h3.731l-.714 3.805 1.965.369L8.766 16h4.966l-.714 3.805 1.965.369.783-4.174H20v-2h-3.859l.751-4H21V8h-3.733l.716-3.815-1.965-.37zM14.106 14H9.141l.751-4h4.966l-.752 4z" class="astro-BLWJYJPT"/>
+    </svg>
+    &nbsp;<span class="astro-BLWJYJPT">rollup</span>
+  </a>
+</li><li class="astro-BLWJYJPT inline-block my-1 underline-offset-4">
+  <a href="/tags/lit" class="astro-BLWJYJPT group pr-2 text-sm">
+    <svg class="astro-BLWJYJPT scale-75" xmlns="http://www.w3.org/2000/svg"><path d="M16.018 3.815 15.232 8h-4.966l.716-3.815-1.964-.37L8.232 8H4v2h3.857l-.751 4H3v2h3.731l-.714 3.805 1.965.369L8.766 16h4.966l-.714 3.805 1.965.369.783-4.174H20v-2h-3.859l.751-4H21V8h-3.733l.716-3.815-1.965-.37zM14.106 14H9.141l.751-4h4.966l-.752 4z" class="astro-BLWJYJPT"/>
+    </svg>
+    &nbsp;<span class="astro-BLWJYJPT">lit</span>
+  </a>
+</li><li class="astro-BLWJYJPT inline-block my-1 underline-offset-4">
+  <a href="/tags/web dev server" class="astro-BLWJYJPT group pr-2 text-sm">
+    <svg class="astro-BLWJYJPT scale-75" xmlns="http://www.w3.org/2000/svg"><path d="M16.018 3.815 15.232 8h-4.966l.716-3.815-1.964-.37L8.232 8H4v2h3.857l-.751 4H3v2h3.731l-.714 3.805 1.965.369L8.766 16h4.966l-.714 3.805 1.965.369.783-4.174H20v-2h-3.859l.751-4H21V8h-3.733l.716-3.815-1.965-.37zM14.106 14H9.141l.751-4h4.966l-.752 4z" class="astro-BLWJYJPT"/>
+    </svg>
+    &nbsp;<span class="astro-BLWJYJPT">web dev server</span>
+  </a>
+</li><li class="astro-BLWJYJPT inline-block my-1 underline-offset-4">
+  <a href="/tags/season 1" class="astro-BLWJYJPT group pr-2 text-sm">
+    <svg class="astro-BLWJYJPT scale-75" xmlns="http://www.w3.org/2000/svg"><path d="M16.018 3.815 15.232 8h-4.966l.716-3.815-1.964-.37L8.232 8H4v2h3.857l-.751 4H3v2h3.731l-.714 3.805 1.965.369L8.766 16h4.966l-.714 3.805 1.965.369.783-4.174H20v-2h-3.859l.751-4H21V8h-3.733l.716-3.815-1.965-.37zM14.106 14H9.141l.751-4h4.966l-.752 4z" class="astro-BLWJYJPT"/>
+    </svg>
+    &nbsp;<span class="astro-BLWJYJPT">season 1</span>
+  </a>
+</li>
+    </ul>
+  </main>
+  <footer class="astro-SZ7XMLTE mt-auto">
+  <div class="max-w-3xl mx-auto px-0">
+  <hr aria-hidden="true" class="border-skin-line">
+</div>
+  <div class="astro-SZ7XMLTE footer-wrapper">
+    <div class="astro-UPU6FZXR flex social-icons">
+  <a href="https://github.com/Web-Components-in-Space/" class="inline-block astro-5EUNQZKT group link-button astro-UPU6FZXR" title=" Web Components from Space on Github" tabindex="0">
+  
+        <svg class="icon-tabler" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M0 0h24v24H0z" fill="none" stroke="none"/>
+    <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"/>
+  </svg>
+      
+</a><a href="https://www.linkedin.com/in/bfarrellforever" class="inline-block astro-5EUNQZKT group link-button astro-UPU6FZXR" title="Ben Farrell on LinkedIn" tabindex="0">
+  
+        <svg class="icon-tabler" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M0 0h24v24H0z" fill="none" stroke="none"/>
+    <rect height="16" rx="2" width="16" x="4" y="4"/>
+    <line x1="8" x2="8" y1="11" y2="16"/>
+    <line x1="8" x2="8" y1="8" y2="8.01"/>
+    <line x1="12" x2="12" y1="16" y2="11"/>
+    <path d="M16 16v-3a2 2 0 0 0 -4 0"/>
+  </svg>
+      
+</a><a href="mailto:ben@benfarrell.com" class="inline-block astro-5EUNQZKT group link-button astro-UPU6FZXR" title="Send an email to Ben Farrell" tabindex="0">
+  
+        <svg class="icon-tabler" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M0 0h24v24H0z" fill="none" stroke="none"/>
+      <rect height="14" rx="2" width="18" x="3" y="5"/>
+      <polyline points="3 7 12 13 21 7"/>
+    </svg>
+      
+</a><a href="https://twitter.com/bfarrellforever" class="inline-block astro-5EUNQZKT group link-button astro-UPU6FZXR" title="Ben Farrell on Twitter" tabindex="0">
+  
+        <svg class="icon-tabler" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M0 0h24v24H0z" fill="none" stroke="none"/>
+      <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z"/>
+    </svg>
+      
+</a><a href="https://www.youtube.com/channel/UCXY-odXhkpetvbK0GOEqZNw" class="inline-block astro-5EUNQZKT group link-button astro-UPU6FZXR" title="Web Components from Space on YouTube" tabindex="0">
+  
+        <svg class="icon-tabler" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/>
+      <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/>
+    </svg>
+      
+</a>
+</div>
+    <div class="astro-SZ7XMLTE copyright-wrapper">
+      <span class="astro-SZ7XMLTE">Copyright &#169; 2023</span>
+      <span class="astro-SZ7XMLTE separator">&nbsp;|&nbsp;</span>
+      <span class="astro-SZ7XMLTE">All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+  </body></html>
