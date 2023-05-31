@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><style>:where(img){height:auto}</style>
+    <meta charset="UTF-8">
+    <meta content="width=device-width" name="viewport">
+    <link href="/favicon.svg" rel="icon" type="image/svg+xml">
+    <link href="https://webcomponents.space/posts/canvasrecording/" rel="canonical">
+    <meta content="Astro v2.3.4" name="generator">
+
+    <!-- General Meta Tags -->
+    <title>Record your Canvas with Web Components</title>
+    <meta content="Record your Canvas with Web Components" name="title">
+    <meta content="A Web Component based Canvas wrapper that can record to MP4 video" name="description">
+    <meta content="Ben Farrell" name="author">
+
+    <!-- Open Graph / Facebook -->
+    <meta content="Record your Canvas with Web Components" property="og:title">
+    <meta content="A Web Component based Canvas wrapper that can record to MP4 video" property="og:description">
+    <meta content="https://webcomponents.space/posts/canvasrecording/" property="og:url">
+    <meta content="https://webcomponents.space/Record%20your%20Canvas%20with%20Web%20Components.png" property="og:image">
+
+    <!-- Twitter -->
+    <meta content="summary_large_image" property="twitter:card">
+    <meta content="https://webcomponents.space/posts/canvasrecording/" property="twitter:url">
+    <meta content="Record your Canvas with Web Components" property="twitter:title">
+    <meta content="A Web Component based Canvas wrapper that can record to MP4 video" property="twitter:description">
+    <meta content="https://webcomponents.space/Record%20your%20Canvas%20with%20Web%20Components.png" property="twitter:image">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+
+    
+
+    <script src="/toggle-theme.js"></script>
+  <link href="/_astro/about.80f21768.css" rel="stylesheet">
+<link href="/_astro/about.48d1af8d.css" rel="stylesheet">
+<link href="/_astro/_slug_.77c27b8f.css" rel="stylesheet">
+<link href="/_astro/_slug_.41a32359.css" rel="stylesheet">
+<link href="/_astro/LinkButton.astro_astro_type_style_index_0_lang.18333935.css" rel="stylesheet">
+<link href="/_astro/_slug_.f4f9ebf2.css" rel="stylesheet">
+<link href="/_astro/_slug_.2485371c.css" rel="stylesheet">
+<link href="/_astro/_slug_.ce5ea344.css" rel="stylesheet"><script src="/_astro/hoisted.cdecd27f.js" type="module"></script></head>
+  <body>
+    
+  <header class="astro-3EF6KSR2">
+  <a href="#main-content" class="astro-3EF6KSR2" id="skip-to-content">Skip to content</a>
+  <div class="astro-3EF6KSR2 nav-container">
+    <div class="astro-3EF6KSR2 top-nav-wrap">
+      <a href="/" class="astro-3EF6KSR2 logo">
+        <img alt="AstroPaper Logo" class="astro-3EF6KSR2" decoding="async" fetchpriority="high" height="46" src="/assets/logo.svg.svg" width="216">
+      </a>
+      <nav class="astro-3EF6KSR2" id="nav-menu">
+        <button class="astro-3EF6KSR2 focus-outline hamburger-menu" aria-controls="menu-items" aria-expanded="false" aria-label="Open Menu">
+          <svg class="astro-3EF6KSR2 menu-icon" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" fill="none" height="24" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24" width="24">
+            <line x1="7" x2="21" y1="12" y2="12" class="line astro-3EF6KSR2"/>
+            <line x1="3" x2="21" y1="6" y2="6" class="line astro-3EF6KSR2"/>
+            <line x1="12" x2="21" y1="18" y2="18" class="line astro-3EF6KSR2"/>
+            <line x1="18" x2="6" y1="6" y2="18" class="astro-3EF6KSR2 close"/>
+            <line x1="6" x2="18" y1="6" y2="18" class="astro-3EF6KSR2 close"/>
+          </svg>
+        </button>
+        <ul class="astro-3EF6KSR2 display-none sm:flex" id="menu-items">
+          <li class="astro-3EF6KSR2">
+            <a href="/rss.xml" class="astro-3EF6KSR2 rss-link" title="RSS Feed" aria-label="rss feed" target="_blank">
+              <svg class="astro-3EF6KSR2 rss-icon" xmlns="http://www.w3.org/2000/svg"><path d="M19 20.001C19 11.729 12.271 5 4 5v2c7.168 0 13 5.832 13 13.001h2z" class="astro-3EF6KSR2"/><path d="M12 20.001h2C14 14.486 9.514 10 4 10v2c4.411 0 8 3.589 8 8.001z" class="astro-3EF6KSR2"/><circle class="astro-3EF6KSR2" cx="6" cy="18" r="2"/>
+              </svg>
+            </a>
+          </li>
+          <li class="astro-3EF6KSR2">
+            <a href="/posts" class="astro-3EF6KSR2">
+              Posts
+            </a>
+          </li>
+          <li class="astro-3EF6KSR2">
+            <a href="/tags" class="astro-3EF6KSR2">
+              Tags
+            </a>
+          </li>
+          <li class="astro-3EF6KSR2">
+            <a href="/about" class="astro-3EF6KSR2">
+              About
+            </a>
+          </li>
+          <li class="astro-3EF6KSR2">
+            <a href="/search" class="astro-3EF6KSR2 focus-outline astro-5EUNQZKT group inline-block p-3 sm:p-1" title="Search" tabindex="0" aria-label="search">
+  
+              <svg class="astro-3EF6KSR2 scale-125 sm:scale-100" xmlns="http://www.w3.org/2000/svg"><path d="M19.023 16.977a35.13 35.13 0 0 1-1.367-1.384c-.372-.378-.596-.653-.596-.653l-2.8-1.337A6.962 6.962 0 0 0 16 9c0-3.859-3.14-7-7-7S2 5.141 2 9s3.14 7 7 7c1.763 0 3.37-.66 4.603-1.739l1.337 2.8s.275.224.653.596c.387.363.896.854 1.384 1.367l1.358 1.392.604.646 2.121-2.121-.646-.604c-.379-.372-.885-.866-1.391-1.36zM9 14c-2.757 0-5-2.243-5-5s2.243-5 5-5 5 2.243 5 5-2.243 5-5 5z" class="astro-3EF6KSR2"/>
+              </svg>
+            
+</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="max-w-3xl mx-auto px-0">
+  <hr aria-hidden="true" class="border-skin-line">
+</div>
+</header>
+  <div class="astro-VJ4TPSPI flex justify-start max-w-3xl mx-auto px-2 w-full">
+    <button class="astro-VJ4TPSPI flex focus-outline hover:opacity-75 mb-2 mt-8" onclick="history.back()">
+      <svg class="astro-VJ4TPSPI" xmlns="http://www.w3.org/2000/svg"><path d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z" class="astro-VJ4TPSPI"/>
+      </svg><span class="astro-VJ4TPSPI">Go back</span>
+    </button>
+  </div>
+  <main class="astro-VJ4TPSPI" id="main-content">
+    <h1 class="astro-VJ4TPSPI post-title">Record your Canvas with Web Components</h1>
+    <div class="astro-VJ4TPSPI flex items-center my-2 opacity-80 space-x-2"><svg class="inline-block fill-skin-base h-6 scale-100 w-6" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M7 11h2v2H7zm0 4h2v2H7zm4-4h2v2h-2zm0 4h2v2h-2zm4-4h2v2h-2zm0 4h2v2h-2z"/><path d="M5 22h14c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2h-2V2h-2v2H9V2H7v2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2zM19 8l.001 12H5V8h14z"/></svg><span class="sr-only">Posted on:</span><span class="italic text-base">May 7, 2023<span aria-hidden="true"> | </span><span class="sr-only"> at </span>03:00 PM</span></div>
+    <article class="astro-VJ4TPSPI max-w-3xl mx-auto mt-8 prose" id="article" role="article">
+      <p>Am I weird? I use the <code>&lt;canvas&gt;</code> tag so much in my work. Whether its drawing 2D graphics or using full-blown
+3D engines like <a href="https://threejs.org/">Three.js</a> or <a href="https://www.babylonjs.com/">Babylon</a>.</p>
+<p>Whatever you use the canvas for, you’re escaping the normal document object model and rendering
+your pixels by hand (or triangles if you’re going 3D).</p>
+<p>Using the canvas can be a ton of fun. You can just draw and draw and draw. Or it can be infuriating, especially
+when your shader code can’t compile. Don’t believe me? Check out my latest attempt trying to get ChatGPT to make
+shaders for me.</p>
+<p>But when you have something working, the results can be downright compelling! Whether you planned
+every pixel perfectly, or you created some happy accidents that animate gorgeously.</p>
+<p>Obviously, if you want to share your work, you’ll be sharing a web page, right?</p>
+<p>Well not anymore! I’d like to introduce you to the <code>recordable-canvas</code> Web Component.
+To install, simply:</p>
+<pre class="astro-code" style="background-color:#282c34;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word"><code><span class="line"><span style="color:#abb2bf">npm i recordable-canvas</span></span></code></pre>
+<p>I have plenty of documentation and a few code examples in the <a href="https://github.com/Web-Components-in-Space/recordable-canvas">repo</a>,
+so I won’t go into how to use it here. Despite how simple of a component it is, it might
+be pretty interesting, especially given that it uses the brand new <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebCodecs_API">Web Codecs API</a> to create the video.</p>
+<h2 id="wrapping-the-canvas">Wrapping the Canvas</h2>
+<p>Before we get into video encoding itself, let’s talk quickly about how this component deals with the canvas.
+Really, the Web Component is just a wrapper. We put a normal <code>canvas</code> element inside a Web Component.
+It’s a shame though! I remember early on in the Web Component days we were hoping to extend any element in your browser.
+Want to add extra features to a Video element? Just say <code>class MyComponent extends HTMLVideoElement</code>.</p>
+<p>Sadly that’s not the case. Today, we can only extend <code>HTMLElement</code> which acts like a normal <code>&lt;div&gt;</code>.
+But that’s OK, we’ll just wrap that <code>&lt;canvas&gt;</code> tag.</p>
+<p>Fortunately, <code>canvas</code> doesn’t have that big of an API. Most <code>canvas</code> usage is creating a 2D or WebGL context,
+and then using that context to draw into. Also, the only <code>canvas</code> specific attributes are <code>width</code> and <code>height</code>.
+So this is all super easy to work with and create a thin layer around that we can bake into a Web Component API.</p>
+<p>Now, what about the recording part?</p>
+<h2 id="encoding-video-with-the-web-codecs-api">Encoding Video with the Web Codecs API</h2>
+<p>Even though I’ll be using the new and snazzy Web Codecs API to record the video, it’s been possible to record many things
+before including the canvas, and natively in fact (meaning without extra libraries).</p>
+<p>The catch: no MP4!</p>
+<p>I’m thinking of the <a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaRecorder">MediaRecorder</a> API. It’s actually really
+confusing. I had to triple check I’m telling the truth as I write this post. Refer to this handy article for <a href="https://dev.to/ndesmic/how-to-record-a-canvas-element-and-make-a-gif-4852">recording your canvas</a>.
+You can specify the MIME type of the <code>MediaRecorder</code> and the outgoing data blob. But the problem is that just because you specify
+the MIME type, doesn’t mean the browser will support it! This is likely due to licensing and legal issues since MPEG has traditionally
+been patent incumbered in the past. Either way, the open source <code>WebM</code> format is generally supported, so that’s typically
+what folks will use to record.</p>
+<p>Though it is rather inconvenient! WebM isn’t supported everywhere you’d want to use video, so prepare yourself to convert it
+to MP4 or similar if you want to drop it in your favorite editor.</p>
+<p>There are solutions to transcode to MP4 live in your browser, such as with <a href="https://github.com/Kagami/ffmpeg.js/">FFMPEG.js</a>.
+MP4 is actually just the containing file however! The codec that you record with still needs to be supported by MP4. So prepare
+for FFMPEG.js to do lots of work if you go this route!</p>
+<p>Luckily, we can record our canvas with MP4 friendly codecs using the <code>VideoEncoder</code> object provided by the new Web Codecs API.</p>
+<p>Let’s start by instantiating and configuring our <code>VideoEncoder</code>:</p>
+<pre class="astro-code" style="background-color:#282c34;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word"><code><span class="line"><span style="color:#abb2bf">const myencoder = new VideoEncoder({</span></span>
+<span class="line"><span style="color:#abb2bf">    output: onEncoderOutput.bind(this),</span></span>
+<span class="line"><span style="color:#abb2bf">    error: onEncoderError.bind(this)</span></span>
+<span class="line"><span style="color:#abb2bf">});</span></span>
+<span class="line"><span style="color:#abb2bf"></span></span>
+<span class="line"><span style="color:#abb2bf">await myencoder.configure(cfg);</span></span></code></pre>
+<p>First, we create our encoder. The first parameter lets us specify functions to handle encoded output and errors.
+It operates like this for a reason. You’ll be adding frames to the encoder, but when it has enough frames
+for an <code>EncodedVideoChunk</code>, you’ll see these come through in the output. It operates fast and off the main thread
+of your Javascript. Really it’s calling out to your OS level system encoders. It’s why you may want to use the
+<code>VideoEncoder.isConfigSupported(config)</code> method to test out whether your specific encoding configuration is supported first.
+Otherwise, you’ll hit the <code>error</code> handler you specified, and it’ll give you a SUPER vague error about how the encoder failed.</p>
+<p>With the <code>VideoEncoder</code> instantiated, we need to configure it. The configuration object specifies a few things like width, height
+and codec. Here’s a sample:</p>
+<pre class="astro-code" style="background-color:#282c34;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word"><code><span class="line"><span style="color:#abb2bf">{</span></span>
+<span class="line"><span style="color:#abb2bf">    codec : &#39;avc1.42001E&#39;,</span></span>
+<span class="line"><span style="color:#abb2bf">    width: 640,</span></span>
+<span class="line"><span style="color:#abb2bf">    height: 480,</span></span>
+<span class="line"><span style="color:#abb2bf">    hardwareAcceleration:&quot;prefer-hardware&quot;,</span></span>
+<span class="line"><span style="color:#abb2bf">    avc:{format:&quot;avc&quot;}</span></span>
+<span class="line"><span style="color:#abb2bf">}</span></span></code></pre>
+<p>This lets the encoder know that I want to encode my video with AVC Level 3. I also want to use a GPU if possible.
+AVC is a codec that can be stuck inside an MP4 container, so we’re good to go there once we reach the point of packaging
+up a file.</p>
+<p>How do we know its Level 3? And what does that mean? Well AVC iterates and provides new capabilities for each iteration.
+I chose level 3 because in my project I wanted to capture 1920x1080 sizes, and I believe level 3 is the minimum version that supports this.
+The codec string of 42001E specifies this. Don’t worry, I don’t know that it makes much sense either. I just end up using
+this <a href="https://privacycheck.sec.lrz.de/active/fp_cpt/fp_can_play_type.html">handy table</a>.</p>
+<p>Once the encoder is configured (and no it’s not synchronous, you do have to wait for it), you can start encoding!</p>
+<h2 id="encoding-the-canvas">Encoding the Canvas</h2>
+<p>So with our encoder ready to go, can we just start throwing canvases at it? Not quite. First we need to create a <code>VideoFrame</code>
+to pass to it.</p>
+<p><code>const frame = new VideoFrame(canvas, { duration: 0, timestamp: 0 } );</code></p>
+<p>THIS is where we toss our canvas in! We’re taking the current state of the canvas at the time
+and making a <code>VideoFrame</code> from it.</p>
+<p>You’ll probably want to specify a duration and timestamp while you’re at it. It’s an optional parameter, this object, but for sanity’s sake
+it’s best practice to use it in my opinion. From what I’ve seen, you can think of frame duration and time as metadata.
+It’ll help write the file, determine framerate, determine file duration, and things like that.
+Honestly, <code>duration</code> doesn’t seem to affect anything whatsoever that I’ve seen, but can be handy if you
+load up the frame again and want the duration for your own reference.</p>
+<p>Even more advice - I’ve seen timestamp numbers typically expressed in microseconds. But no, I haven’t
+played around to see how much this matters in the actual video file. It’s probably going to have to do with how you
+play back the frames yourself, or what the library does to encode the file, or how an external player deals with those timestamps.
+Either way, microseconds seem pretty standard. For clarity, this means 1 second is 1,000,000 microseconds!</p>
+<p>Anyway, once you’re ready to pass that frame on to the encoder, just do the following:
+<code>myencoder.encode(frame, { keyFrame: true/false });</code></p>
+<p>Simple right? Maybe not when you see that <code>keyframe</code> property! This object parameter is optional as well, but the problem
+is that your video is not going to play very well unless you use it. By default, if you don’t pass this parameter in, the
+keyframe property defaults to false.</p>
+<p>You can think of keyframes as the complete image of your video. But what happens if every frame is a keyframe?
+This makes your file pretty darn big! Instead, if you pass false (or nothing), you’re creating a “delta” frame.
+Delta frames only contain information about what changed, which can save lots of filesize.</p>
+<p>Think of a person talking against a static background. If the background doesn’t change, why save all those pixels
+over and over again?</p>
+<p>I don’t specifically know what the best distance between keyframes is, but when I was exploring Web Codecs, I noticed
+that the infamous open source movie <a href="https://peach.blender.org/download/">“Big Buck Bunny”</a> had 1 second spacing between every keyframe, so I’ve been defaulting to that.
+It likely really depends on how much motion your video contains and how concerned you are about compression.</p>
+<h2 id="handling-our-chunks">Handling our Chunks</h2>
+<p>Once you pass your frame to the encoder, you’re basically just trusting that it’ll come back via the handler you specified
+when you set up your <code>VideoEncoder</code>.</p>
+<p>Here’s my <code>recordable-canvas</code> callback, complete with Typescript definitions for the parameters:</p>
+<pre class="astro-code" style="background-color:#282c34;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word"><code><span class="line"><span style="color:#abb2bf">protected onEncoderOutput(chunk: EncodedVideoChunk, chunkMetadata: EncodedVideoChunkMetadata) {</span></span>
+<span class="line"><span style="color:#abb2bf">    this.recording.push(chunk);</span></span>
+<span class="line"><span style="color:#abb2bf">    if (chunkMetadata?.decoderConfig?.description) {</span></span>
+<span class="line"><span style="color:#abb2bf">        this.description = chunkMetadata.decoderConfig.description;</span></span>
+<span class="line"><span style="color:#abb2bf">    }</span></span>
+<span class="line"><span style="color:#abb2bf">}</span></span></code></pre>
+<p>Notice, we get a <code>EncodedVideoChunk</code> and <code>EncodedVideoChunkMetadata</code>. For our purposes, the metadata
+isn’t so useful until the very end when we want to save the file. For this we need the “description”, and
+honestly, this to me is an incomprehensible data buffer that gets passed to our MP4 library.</p>
+<p>All that said, the metadata DOES contain information like width, height, colorspace info, etc if you have
+a use for it! We don’t, because we’re just passing this info straight through, and we already know the width and
+height because we started from the beginning with this info as we set up our canvas.</p>
+<p>Now, the <code>EncodedVideoChunk</code> can contain multiple video frames all compressed and bundled as one thing.
+Though, in practice, I’m not sure that I’ve seen more than one frame in any given chunk.</p>
+<p>Either way, this is our “video stream”! I’m just pushing all of these chunks into an array. Fortunately, they
+do come back in the order you feed them to your encoder (phew!).</p>
+<p>What’s cool is that these are encoded and compressed video frames, but they could be decoded by using the handy
+<code>VideoDecoder</code> from the Web Codecs API. In fact, they can be decoded in any order you want! Hello video editing!</p>
+<h2 id="writing-our-mp4-file">Writing our MP4 File</h2>
+<p>Yeah, using the Web Codecs API is complicated. There’s lots of stuff to know about video to understand what you’re doing here.
+But low level APIs like this have a lot of power to do some pretty crazy things!</p>
+<p>Here’s another video term you might not know: Muxing. Muxing basically means you’re combining video and audio tracks
+and putting them into a container file (such as MP4). Likewise demuxing is doing the reverse…start with a container
+and get separate video and audio tracks.</p>
+<p>Unfortunately, the browser does not provide a way to mux/demux video. That said there is some discussion around that because
+the Web Codecs API is amazing, but you can’t really do much with it unless you have muxing/demuxing available to you.</p>
+<p>Luckily there are loads of great libraries that can do this for us. One such library is <a href="https://github.com/gpac/mp4box.js/">MP4Box.js</a>.
+MP4Box.js is a JS port of an incredibly comprehensive toolset of MP4 utilities.</p>
+<p>As these things usually go though, its a CommonJS project. Sigh. I won’t get on my soapbox to say ES modules are no longer
+the future but the present, and we should all ditch CommonJS. Instead, I’ll just tell you that I <a href="https://github.com/Web-Components-in-Space/recordable-canvas/tree/main/mp4box-bundler">pre-bundled</a> the library with Rollup
+in the <code>recordable-canvas</code> component, so we can use it as an ES module. We <a href="http://webcomponents.space/posts/s01e03/">did this for Tensorflow.js</a> on Web Components in Space before.
+But all it means is that I bundled it with Rollup, so it becomes yet another source file in our project. This means
+that end users who want to use <code>recordable-canvas</code> can still work with the original source files as ES modules without having
+to worry about front-end tooling setups themselves.</p>
+<p>Onto saving! I did gloss over creating the file initially with MP4Box.js when we started recording. But that’s
+only because its so easy: <code>file = MP4Box.createFile();</code></p>
+<p>But when we stop recording, here’s the <code>recordable-canvas</code> code for these last steps:</p>
+<pre class="astro-code" style="background-color:#282c34;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word"><code><span class="line"><span style="color:#abb2bf">public async stopRecording(saveas?: string) {</span></span>
+<span class="line"><span style="color:#abb2bf">        const oneSecondInMillisecond = 1000;</span></span>
+<span class="line"><span style="color:#abb2bf">        const timescale = 1000;</span></span>
+<span class="line"><span style="color:#abb2bf">        let durationInMillisecond = 1000;</span></span>
+<span class="line"><span style="color:#abb2bf">        const fps = this.frameCount / (this._duration / 1000);</span></span>
+<span class="line"><span style="color:#abb2bf">        let frameTimeInMillisecond = 1000 / fps;</span></span>
+<span class="line"><span style="color:#abb2bf">        let totalFrames = Math.floor(durationInMillisecond / frameTimeInMillisecond) ;</span></span>
+<span class="line"><span style="color:#abb2bf"></span></span>
+<span class="line"><span style="color:#abb2bf">        this._isRecording = false;</span></span>
+<span class="line"><span style="color:#abb2bf">        this.encoder?.flush().then(() =&gt; {</span></span>
+<span class="line"><span style="color:#abb2bf">            this.encoder?.close();</span></span>
+<span class="line"><span style="color:#abb2bf"></span></span>
+<span class="line"><span style="color:#abb2bf">            this.recording.forEach((chunk: EncodedVideoChunk) =&gt; {</span></span>
+<span class="line"><span style="color:#abb2bf">                let ab = new ArrayBuffer(chunk.byteLength);</span></span>
+<span class="line"><span style="color:#abb2bf">                chunk.copyTo(ab);</span></span>
+<span class="line"><span style="color:#abb2bf">                if (this.track === null) {</span></span>
+<span class="line"><span style="color:#abb2bf">                    this.track = this.file.addTrack({</span></span>
+<span class="line"><span style="color:#abb2bf">                        timescale: (oneSecondInMillisecond * timescale),</span></span>
+<span class="line"><span style="color:#abb2bf">                        width: this.width,</span></span>
+<span class="line"><span style="color:#abb2bf">                        height: this.height,</span></span>
+<span class="line"><span style="color:#abb2bf">                        nb_samples: totalFrames,</span></span>
+<span class="line"><span style="color:#abb2bf">                        avcDecoderConfigRecord: this.description });</span></span>
+<span class="line"><span style="color:#abb2bf">                }</span></span>
+<span class="line"><span style="color:#abb2bf">                this.file.addSample(this.track, ab, {</span></span>
+<span class="line"><span style="color:#abb2bf">                    duration: (frameTimeInMillisecond * timescale),</span></span>
+<span class="line"><span style="color:#abb2bf">                    dts: chunk.timestamp,</span></span>
+<span class="line"><span style="color:#abb2bf">                    cts: chunk.timestamp,</span></span>
+<span class="line"><span style="color:#abb2bf">                    is_sync: (chunk.type === &#39;key&#39;)</span></span>
+<span class="line"><span style="color:#abb2bf">                });</span></span>
+<span class="line"><span style="color:#abb2bf">            });</span></span>
+<span class="line"><span style="color:#abb2bf">            if (saveas) {</span></span>
+<span class="line"><span style="color:#abb2bf">                this.saveFile(saveas);</span></span>
+<span class="line"><span style="color:#abb2bf">            }</span></span>
+<span class="line"><span style="color:#abb2bf">        });</span></span>
+<span class="line"><span style="color:#abb2bf">    }</span></span>
+<span class="line"><span style="color:#abb2bf"></span></span>
+<span class="line"><span style="color:#abb2bf">    public saveFile(saveas: string) {</span></span>
+<span class="line"><span style="color:#abb2bf">        if (this.file) {</span></span>
+<span class="line"><span style="color:#abb2bf">            this.file.save(`${saveas}.mp4`);</span></span>
+<span class="line"><span style="color:#abb2bf">            return true;</span></span>
+<span class="line"><span style="color:#abb2bf">        } else {</span></span>
+<span class="line"><span style="color:#abb2bf">            console.warn(&#39;Cannot save file because no file was created/recorded&#39;);</span></span>
+<span class="line"><span style="color:#abb2bf">            return false;</span></span>
+<span class="line"><span style="color:#abb2bf">        }</span></span>
+<span class="line"><span style="color:#abb2bf">    }</span></span></code></pre>
+<p>The first step is to flush our encoder. Maybe we’ve stopped encoding canvas frames, but that doesn’t mean
+there aren’t any lingering frames in our encoder waiting for more to come so the set can be encoded and create a
+<code>EncodedVideoChunk</code>. So we wait for a flush, and while we’re waiting, more frames might be appended to our array
+as they come through via our encoder callback.</p>
+<p>The next steps…well MP4Box has a bit of a complicated API. We’re adding samples for each <code>EncodedVideoChunk</code>
+in our array. We’re also making sure a video track is present to add those samples to. Basically
+our chunk is being converted into a format that’s compatible with MP4Box (keyframes, timestamps and all).
+It can be a little foreign to look at if you don’t know the underlying specifications of MP4 files (I certainly don’t).</p>
+<p>After that, MP4Box has a nice little method to save the file. Just call <code>file.save(myfilename.mp4)</code> and you’re done!</p>
+<h2 id="using-recordable-canvas">Using <code>recordable-canvas</code></h2>
+<p>I won’t get into much about using this component. I mentioned the documentation and demos in the <a href="https://github.com/Web-Components-in-Space/recordable-canvas">repo</a>,
+but the most basic usage is to set it up like this:</p>
+<pre class="astro-code" style="background-color:#282c34;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word"><code><span class="line"><span style="color:#abb2bf">&lt;recordable-canvas width=&quot;300&quot; height=&quot;300&quot;&gt;&lt;/recordable-canvas&gt;</span></span>
+<span class="line"><span style="color:#abb2bf">&lt;script&gt;</span></span>
+<span class="line"><span style="color:#abb2bf">    import &#39;recordable-canvas&#39;;</span></span>
+<span class="line"><span style="color:#abb2bf">    const canvas = document.body.querySelector(&#39;recordable-canvas&#39;);</span></span>
+<span class="line"><span style="color:#abb2bf">    canvas.addEventListener(&#39;ready&#39;, () =&gt; { ...</span></span>
+<span class="line"><span style="color:#abb2bf">&lt;/script&gt;</span></span></code></pre>
+<p>Once the component is “ready”, start doing whatever canvas operations you like with it!
+But to start/stop recording, simply call <code>startRecording</code> and <code>stopRecording</code> on the element,
+and call <code>encodeFrame</code> whenever you want to take a snapshot to encode the video frame.</p>
+<p>I should call out that this was a small and not so comprehensive project on my part. I did it because
+I wanted to record some WebGL shaders that I asked ChatGPT to make. That was a whole ordeal you can see here.</p>
+<p>When I was browsing NPM for similar projects I do see that <a href="https://github.com/dmnsgn/canvas-record">this one</a> looks wayyyyy better! It’s not a Web
+Component, but it’s similar in what it does. <code>Canvas-record</code> seems to offer several different ways to
+encode your recordings including a WASM one which should be super speedy!</p>
+<p>Whichever one you record with, my main goal here was to talk a little bit about Web Codecs and Web Components.
+Hope you found this useful!</p>
+    </article>
+
+    <ul class="astro-VJ4TPSPI tags-container">
+      <li class="astro-BLWJYJPT inline-block my-1 underline-offset-4">
+  <a href="/tags/canvas" class="astro-BLWJYJPT group pr-2 text-sm">
+    <svg class="astro-BLWJYJPT scale-75" xmlns="http://www.w3.org/2000/svg"><path d="M16.018 3.815 15.232 8h-4.966l.716-3.815-1.964-.37L8.232 8H4v2h3.857l-.751 4H3v2h3.731l-.714 3.805 1.965.369L8.766 16h4.966l-.714 3.805 1.965.369.783-4.174H20v-2h-3.859l.751-4H21V8h-3.733l.716-3.815-1.965-.37zM14.106 14H9.141l.751-4h4.966l-.752 4z" class="astro-BLWJYJPT"/>
+    </svg>
+    &nbsp;<span class="astro-BLWJYJPT">canvas</span>
+  </a>
+</li><li class="astro-BLWJYJPT inline-block my-1 underline-offset-4">
+  <a href="/tags/mp4box" class="astro-BLWJYJPT group pr-2 text-sm">
+    <svg class="astro-BLWJYJPT scale-75" xmlns="http://www.w3.org/2000/svg"><path d="M16.018 3.815 15.232 8h-4.966l.716-3.815-1.964-.37L8.232 8H4v2h3.857l-.751 4H3v2h3.731l-.714 3.805 1.965.369L8.766 16h4.966l-.714 3.805 1.965.369.783-4.174H20v-2h-3.859l.751-4H21V8h-3.733l.716-3.815-1.965-.37zM14.106 14H9.141l.751-4h4.966l-.752 4z" class="astro-BLWJYJPT"/>
+    </svg>
+    &nbsp;<span class="astro-BLWJYJPT">mp4box</span>
+  </a>
+</li><li class="astro-BLWJYJPT inline-block my-1 underline-offset-4">
+  <a href="/tags/web codecs" class="astro-BLWJYJPT group pr-2 text-sm">
+    <svg class="astro-BLWJYJPT scale-75" xmlns="http://www.w3.org/2000/svg"><path d="M16.018 3.815 15.232 8h-4.966l.716-3.815-1.964-.37L8.232 8H4v2h3.857l-.751 4H3v2h3.731l-.714 3.805 1.965.369L8.766 16h4.966l-.714 3.805 1.965.369.783-4.174H20v-2h-3.859l.751-4H21V8h-3.733l.716-3.815-1.965-.37zM14.106 14H9.141l.751-4h4.966l-.752 4z" class="astro-BLWJYJPT"/>
+    </svg>
+    &nbsp;<span class="astro-BLWJYJPT">web codecs</span>
+  </a>
+</li><li class="astro-BLWJYJPT inline-block my-1 underline-offset-4">
+  <a href="/tags/web components" class="astro-BLWJYJPT group pr-2 text-sm">
+    <svg class="astro-BLWJYJPT scale-75" xmlns="http://www.w3.org/2000/svg"><path d="M16.018 3.815 15.232 8h-4.966l.716-3.815-1.964-.37L8.232 8H4v2h3.857l-.751 4H3v2h3.731l-.714 3.805 1.965.369L8.766 16h4.966l-.714 3.805 1.965.369.783-4.174H20v-2h-3.859l.751-4H21V8h-3.733l.716-3.815-1.965-.37zM14.106 14H9.141l.751-4h4.966l-.752 4z" class="astro-BLWJYJPT"/>
+    </svg>
+    &nbsp;<span class="astro-BLWJYJPT">web components</span>
+  </a>
+</li><li class="astro-BLWJYJPT inline-block my-1 underline-offset-4">
+  <a href="/tags/season 2" class="astro-BLWJYJPT group pr-2 text-sm">
+    <svg class="astro-BLWJYJPT scale-75" xmlns="http://www.w3.org/2000/svg"><path d="M16.018 3.815 15.232 8h-4.966l.716-3.815-1.964-.37L8.232 8H4v2h3.857l-.751 4H3v2h3.731l-.714 3.805 1.965.369L8.766 16h4.966l-.714 3.805 1.965.369.783-4.174H20v-2h-3.859l.751-4H21V8h-3.733l.716-3.815-1.965-.37zM14.106 14H9.141l.751-4h4.966l-.752 4z" class="astro-BLWJYJPT"/>
+    </svg>
+    &nbsp;<span class="astro-BLWJYJPT">season 2</span>
+  </a>
+</li>
+    </ul>
+  </main>
+  <footer class="astro-SZ7XMLTE mt-auto">
+  <div class="max-w-3xl mx-auto px-0">
+  <hr aria-hidden="true" class="border-skin-line">
+</div>
+  <div class="astro-SZ7XMLTE footer-wrapper">
+    <div class="astro-UPU6FZXR flex social-icons">
+  <a href="https://github.com/Web-Components-in-Space/" class="inline-block astro-5EUNQZKT group astro-UPU6FZXR link-button" title=" Web Components from Space on Github" tabindex="0">
+  
+        <svg class="icon-tabler" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M0 0h24v24H0z" fill="none" stroke="none"/>
+    <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"/>
+  </svg>
+      
+</a><a href="https://www.linkedin.com/in/bfarrellforever" class="inline-block astro-5EUNQZKT group astro-UPU6FZXR link-button" title="Ben Farrell on LinkedIn" tabindex="0">
+  
+        <svg class="icon-tabler" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M0 0h24v24H0z" fill="none" stroke="none"/>
+    <rect height="16" rx="2" width="16" x="4" y="4"/>
+    <line x1="8" x2="8" y1="11" y2="16"/>
+    <line x1="8" x2="8" y1="8" y2="8.01"/>
+    <line x1="12" x2="12" y1="16" y2="11"/>
+    <path d="M16 16v-3a2 2 0 0 0 -4 0"/>
+  </svg>
+      
+</a><a href="mailto:ben@benfarrell.com" class="inline-block astro-5EUNQZKT group astro-UPU6FZXR link-button" title="Send an email to Ben Farrell" tabindex="0">
+  
+        <svg class="icon-tabler" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M0 0h24v24H0z" fill="none" stroke="none"/>
+      <rect height="14" rx="2" width="18" x="3" y="5"/>
+      <polyline points="3 7 12 13 21 7"/>
+    </svg>
+      
+</a><a href="https://twitter.com/bfarrellforever" class="inline-block astro-5EUNQZKT group astro-UPU6FZXR link-button" title="Ben Farrell on Twitter" tabindex="0">
+  
+        <svg class="icon-tabler" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M0 0h24v24H0z" fill="none" stroke="none"/>
+      <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z"/>
+    </svg>
+      
+</a><a href="https://www.youtube.com/channel/UCXY-odXhkpetvbK0GOEqZNw" class="inline-block astro-5EUNQZKT group astro-UPU6FZXR link-button" title="Web Components from Space on YouTube" tabindex="0">
+  
+        <svg class="icon-tabler" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/>
+      <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/>
+    </svg>
+      
+</a>
+</div>
+    <div class="astro-SZ7XMLTE copyright-wrapper">
+      <span class="astro-SZ7XMLTE">Copyright &#169; 2023</span>
+      <span class="astro-SZ7XMLTE separator">&nbsp;|&nbsp;</span>
+      <span class="astro-SZ7XMLTE">All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+  </body></html>
+
+<canvas class="astro-LFNFX43V" id="shader"></canvas>
