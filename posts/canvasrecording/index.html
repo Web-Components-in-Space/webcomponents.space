@@ -107,15 +107,16 @@
   </div>
   <main class="astro-VJ4TPSPI" id="main-content">
     <h1 class="astro-VJ4TPSPI post-title">Record your Canvas with Web Components</h1>
-    <div class="astro-VJ4TPSPI flex items-center my-2 opacity-80 space-x-2"><svg class="inline-block fill-skin-base h-6 scale-100 w-6" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M7 11h2v2H7zm0 4h2v2H7zm4-4h2v2h-2zm0 4h2v2h-2zm4-4h2v2h-2zm0 4h2v2h-2z"/><path d="M5 22h14c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2h-2V2h-2v2H9V2H7v2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2zM19 8l.001 12H5V8h14z"/></svg><span class="sr-only">Posted on:</span><span class="italic text-base">May 7, 2023<span aria-hidden="true"> | </span><span class="sr-only"> at </span>03:00 PM</span></div>
+    <div class="astro-VJ4TPSPI flex items-center my-2 opacity-80 space-x-2"><svg class="inline-block fill-skin-base h-6 scale-100 w-6" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M7 11h2v2H7zm0 4h2v2H7zm4-4h2v2h-2zm0 4h2v2h-2zm4-4h2v2h-2zm0 4h2v2h-2z"/><path d="M5 22h14c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2h-2V2h-2v2H9V2H7v2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2zM19 8l.001 12H5V8h14z"/></svg><span class="sr-only">Posted on:</span><span class="italic text-base">May 30, 2023<span aria-hidden="true"> | </span><span class="sr-only"> at </span>03:00 PM</span></div>
     <article class="astro-VJ4TPSPI max-w-3xl mx-auto mt-8 prose" id="article" role="article">
       <p>Am I weird? I use the <code>&lt;canvas&gt;</code> tag so much in my work. Whether its drawing 2D graphics or using full-blown
 3D engines like <a href="https://threejs.org/">Three.js</a> or <a href="https://www.babylonjs.com/">Babylon</a>.</p>
 <p>Whatever you use the canvas for, you’re escaping the normal document object model and rendering
 your pixels by hand (or triangles if you’re going 3D).</p>
 <p>Using the canvas can be a ton of fun. You can just draw and draw and draw. Or it can be infuriating, especially
-when your shader code can’t compile. Don’t believe me? Check out my latest attempt trying to get ChatGPT to make
-shaders for me.</p>
+when your shader code can’t compile. Don’t believe me? <a href="https://youtu.be/80y8WjQ1d7o">Check out my latest attempt</a> trying to get ChatGPT to make
+shaders for me. In fact, I was having ChatGPT (both successfully and unsuccessfully) make several shaders I’d use for
+various video interviews.</p>
 <p>But when you have something working, the results can be downright compelling! Whether you planned
 every pixel perfectly, or you created some happy accidents that animate gorgeously.</p>
 <p>Obviously, if you want to share your work, you’ll be sharing a web page, right?</p>
@@ -317,8 +318,9 @@ but the most basic usage is to set it up like this:</p>
 <p>Once the component is “ready”, start doing whatever canvas operations you like with it!
 But to start/stop recording, simply call <code>startRecording</code> and <code>stopRecording</code> on the element,
 and call <code>encodeFrame</code> whenever you want to take a snapshot to encode the video frame.</p>
-<p>I should call out that this was a small and not so comprehensive project on my part. I did it because
-I wanted to record some WebGL shaders that I asked ChatGPT to make. That was a whole ordeal you can see here.</p>
+<p>I should call out that this was a small and not so comprehensive project on my part. Again, I did it because
+I wanted to record some WebGL shaders that I asked ChatGPT to make and use them for my video series at <a href="https://webcomponents.space">webcomponents.space</a>.
+That was a whole ordeal you can see <a href="https://youtu.be/80y8WjQ1d7o">here on YouTube</a> :)</p>
 <p>When I was browsing NPM for similar projects I do see that <a href="https://github.com/dmnsgn/canvas-record">this one</a> looks wayyyyy better! It’s not a Web
 Component, but it’s similar in what it does. <code>Canvas-record</code> seems to offer several different ways to
 encode your recordings including a WASM one which should be super speedy!</p>
