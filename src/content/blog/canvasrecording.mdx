@@ -1,0 +1,310 @@
+---
+pubDatetime: 2023-05-07T15:00:00
+title: Record your Canvas with Web Components
+postSlug: canvasrecording
+featured: true
+tags:
+  - canvas
+  - mp4box
+  - web codecs
+  - web components
+  - season 2
+description: A Web Component based Canvas wrapper that can record to MP4 video
+---
+
+import socialIcons from "@assets/socialIcons";
+import LinkButton from "../../components/LinkButton.astro";
+
+Am I weird? I use the `<canvas>` tag so much in my work. Whether its drawing 2D graphics or using full-blown
+3D engines like [Three.js](https://threejs.org/) or [Babylon](https://www.babylonjs.com/).
+
+Whatever you use the canvas for, you're escaping the normal document object model and rendering
+your pixels by hand (or triangles if you're going 3D).
+
+Using the canvas can be a ton of fun. You can just draw and draw and draw. Or it can be infuriating, especially
+when your shader code can't compile. Don't believe me? Check out my latest attempt trying to get ChatGPT to make
+shaders for me.
+
+But when you have something working, the results can be downright compelling! Whether you planned
+every pixel perfectly, or you created some happy accidents that animate gorgeously.
+
+Obviously, if you want to share your work, you'll be sharing a web page, right?
+
+Well not anymore! I'd like to introduce you to the `recordable-canvas` Web Component.
+To install, simply:
+
+```
+npm i recordable-canvas
+```
+
+I have plenty of documentation and a few code examples in the [repo](https://github.com/Web-Components-in-Space/recordable-canvas),
+so I won't go into how to use it here. Despite how simple of a component it is, it might
+be pretty interesting, especially given that it uses the brand new [Web Codecs API](https://developer.mozilla.org/en-US/docs/Web/API/WebCodecs_API) to create the video.
+
+## Wrapping the Canvas
+
+Before we get into video encoding itself, let's talk quickly about how this component deals with the canvas.
+Really, the Web Component is just a wrapper. We put a normal `canvas` element inside a Web Component.
+It's a shame though! I remember early on in the Web Component days we were hoping to extend any element in your browser.
+Want to add extra features to a Video element? Just say `class MyComponent extends HTMLVideoElement`.
+
+Sadly that's not the case. Today, we can only extend `HTMLElement` which acts like a normal `<div>`.
+But that's OK, we'll just wrap that `<canvas>` tag.
+
+Fortunately, `canvas` doesn't have that big of an API. Most `canvas` usage is creating a 2D or WebGL context,
+and then using that context to draw into. Also, the only `canvas` specific attributes are `width` and `height`.
+So this is all super easy to work with and create a thin layer around that we can bake into a Web Component API.
+
+Now, what about the recording part?
+
+## Encoding Video with the Web Codecs API
+
+Even though I'll be using the new and snazzy Web Codecs API to record the video, it's been possible to record many things
+before including the canvas, and natively in fact (meaning without extra libraries).
+
+The catch: no MP4!
+
+I'm thinking of the [MediaRecorder](https://developer.mozilla.org/en-US/docs/Web/API/MediaRecorder) API. It's actually really
+confusing. I had to triple check I'm telling the truth as I write this post. Refer to this handy article for [recording your canvas](https://dev.to/ndesmic/how-to-record-a-canvas-element-and-make-a-gif-4852).
+You can specify the MIME type of the `MediaRecorder` and the outgoing data blob. But the problem is that just because you specify
+the MIME type, doesn't mean the browser will support it! This is likely due to licensing and legal issues since MPEG has traditionally
+been patent incumbered in the past. Either way, the open source `WebM` format is generally supported, so that's typically
+what folks will use to record.
+
+Though it is rather inconvenient! WebM isn't supported everywhere you'd want to use video, so prepare yourself to convert it
+to MP4 or similar if you want to drop it in your favorite editor.
+
+There are solutions to transcode to MP4 live in your browser, such as with [FFMPEG.js](https://github.com/Kagami/ffmpeg.js/).
+MP4 is actually just the containing file however! The codec that you record with still needs to be supported by MP4. So prepare
+for FFMPEG.js to do lots of work if you go this route!
+
+Luckily, we can record our canvas with MP4 friendly codecs using the `VideoEncoder` object provided by the new Web Codecs API.
+
+Let's start by instantiating and configuring our `VideoEncoder`:
+
+```
+const myencoder = new VideoEncoder({
+    output: onEncoderOutput.bind(this),
+    error: onEncoderError.bind(this)
+});
+
+await myencoder.configure(cfg);
+```
+
+First, we create our encoder. The first parameter lets us specify functions to handle encoded output and errors.
+It operates like this for a reason. You'll be adding frames to the encoder, but when it has enough frames
+for an `EncodedVideoChunk`, you'll see these come through in the output. It operates fast and off the main thread
+of your Javascript. Really it's calling out to your OS level system encoders. It's why you may want to use the
+`VideoEncoder.isConfigSupported(config)` method to test out whether your specific encoding configuration is supported first.
+Otherwise, you'll hit the `error` handler you specified, and it'll give you a SUPER vague error about how the encoder failed.
+
+With the `VideoEncoder` instantiated, we need to configure it. The configuration object specifies a few things like width, height
+and codec. Here's a sample:
+
+```
+{
+    codec : 'avc1.42001E',
+    width: 640,
+    height: 480,
+    hardwareAcceleration:"prefer-hardware",
+    avc:{format:"avc"}
+}
+```
+
+This lets the encoder know that I want to encode my video with AVC Level 3. I also want to use a GPU if possible.
+AVC is a codec that can be stuck inside an MP4 container, so we're good to go there once we reach the point of packaging
+up a file.
+
+How do we know its Level 3? And what does that mean? Well AVC iterates and provides new capabilities for each iteration.
+I chose level 3 because in my project I wanted to capture 1920x1080 sizes, and I believe level 3 is the minimum version that supports this.
+The codec string of 42001E specifies this. Don't worry, I don't know that it makes much sense either. I just end up using
+this [handy table](https://privacycheck.sec.lrz.de/active/fp_cpt/fp_can_play_type.html).
+
+Once the encoder is configured (and no it's not synchronous, you do have to wait for it), you can start encoding!
+
+## Encoding the Canvas
+
+So with our encoder ready to go, can we just start throwing canvases at it? Not quite. First we need to create a `VideoFrame`
+to pass to it.
+
+`const frame = new VideoFrame(canvas, { duration: 0, timestamp: 0 } );`
+
+THIS is where we toss our canvas in! We're taking the current state of the canvas at the time
+and making a `VideoFrame` from it.
+
+You'll probably want to specify a duration and timestamp while you're at it. It's an optional parameter, this object, but for sanity's sake
+it's best practice to use it in my opinion. From what I've seen, you can think of frame duration and time as metadata.
+It'll help write the file, determine framerate, determine file duration, and things like that.
+Honestly, `duration` doesn't seem to affect anything whatsoever that I've seen, but can be handy if you
+load up the frame again and want the duration for your own reference.
+
+Even more advice - I've seen timestamp numbers typically expressed in microseconds. But no, I haven't
+played around to see how much this matters in the actual video file. It's probably going to have to do with how you
+play back the frames yourself, or what the library does to encode the file, or how an external player deals with those timestamps.
+Either way, microseconds seem pretty standard. For clarity, this means 1 second is 1,000,000 microseconds!
+
+Anyway, once you're ready to pass that frame on to the encoder, just do the following:
+`myencoder.encode(frame, { keyFrame: true/false });`
+
+Simple right? Maybe not when you see that `keyframe` property! This object parameter is optional as well, but the problem
+is that your video is not going to play very well unless you use it. By default, if you don't pass this parameter in, the
+keyframe property defaults to false.
+
+You can think of keyframes as the complete image of your video. But what happens if every frame is a keyframe?
+This makes your file pretty darn big! Instead, if you pass false (or nothing), you're creating a "delta" frame.
+Delta frames only contain information about what changed, which can save lots of filesize.
+
+Think of a person talking against a static background. If the background doesn't change, why save all those pixels
+over and over again?
+
+I don't specifically know what the best distance between keyframes is, but when I was exploring Web Codecs, I noticed
+that the infamous open source movie ["Big Buck Bunny"](https://peach.blender.org/download/) had 1 second spacing between every keyframe, so I've been defaulting to that.
+It likely really depends on how much motion your video contains and how concerned you are about compression.
+
+## Handling our Chunks
+
+Once you pass your frame to the encoder, you're basically just trusting that it'll come back via the handler you specified
+when you set up your `VideoEncoder`.
+
+Here's my `recordable-canvas` callback, complete with Typescript definitions for the parameters:
+
+```
+protected onEncoderOutput(chunk: EncodedVideoChunk, chunkMetadata: EncodedVideoChunkMetadata) {
+    this.recording.push(chunk);
+    if (chunkMetadata?.decoderConfig?.description) {
+        this.description = chunkMetadata.decoderConfig.description;
+    }
+}
+```
+
+Notice, we get a `EncodedVideoChunk` and `EncodedVideoChunkMetadata`. For our purposes, the metadata
+isn't so useful until the very end when we want to save the file. For this we need the "description", and
+honestly, this to me is an incomprehensible data buffer that gets passed to our MP4 library.
+
+All that said, the metadata DOES contain information like width, height, colorspace info, etc if you have
+a use for it! We don't, because we're just passing this info straight through, and we already know the width and
+height because we started from the beginning with this info as we set up our canvas.
+
+Now, the `EncodedVideoChunk` can contain multiple video frames all compressed and bundled as one thing.
+Though, in practice, I'm not sure that I've seen more than one frame in any given chunk.
+
+Either way, this is our "video stream"! I'm just pushing all of these chunks into an array. Fortunately, they
+do come back in the order you feed them to your encoder (phew!).
+
+What's cool is that these are encoded and compressed video frames, but they could be decoded by using the handy
+`VideoDecoder` from the Web Codecs API. In fact, they can be decoded in any order you want! Hello video editing!
+
+## Writing our MP4 File
+
+Yeah, using the Web Codecs API is complicated. There's lots of stuff to know about video to understand what you're doing here.
+But low level APIs like this have a lot of power to do some pretty crazy things!
+
+Here's another video term you might not know: Muxing. Muxing basically means you're combining video and audio tracks
+and putting them into a container file (such as MP4). Likewise demuxing is doing the reverse....start with a container
+and get separate video and audio tracks.
+
+Unfortunately, the browser does not provide a way to mux/demux video. That said there is some discussion around that because
+the Web Codecs API is amazing, but you can't really do much with it unless you have muxing/demuxing available to you.
+
+Luckily there are loads of great libraries that can do this for us. One such library is [MP4Box.js](https://github.com/gpac/mp4box.js/).
+MP4Box.js is a JS port of an incredibly comprehensive toolset of MP4 utilities.
+
+As these things usually go though, its a CommonJS project. Sigh. I won't get on my soapbox to say ES modules are no longer
+the future but the present, and we should all ditch CommonJS. Instead, I'll just tell you that I [pre-bundled](https://github.com/Web-Components-in-Space/recordable-canvas/tree/main/mp4box-bundler) the library with Rollup
+in the `recordable-canvas` component, so we can use it as an ES module. We [did this for Tensorflow.js](http://webcomponents.space/posts/s01e03/) on Web Components in Space before.
+But all it means is that I bundled it with Rollup, so it becomes yet another source file in our project. This means
+that end users who want to use `recordable-canvas` can still work with the original source files as ES modules without having
+to worry about front-end tooling setups themselves.
+
+Onto saving! I did gloss over creating the file initially with MP4Box.js when we started recording. But that's
+only because its so easy: `file = MP4Box.createFile();`
+
+But when we stop recording, here's the `recordable-canvas` code for these last steps:
+
+```
+public async stopRecording(saveas?: string) {
+        const oneSecondInMillisecond = 1000;
+        const timescale = 1000;
+        let durationInMillisecond = 1000;
+        const fps = this.frameCount / (this._duration / 1000);
+        let frameTimeInMillisecond = 1000 / fps;
+        let totalFrames = Math.floor(durationInMillisecond / frameTimeInMillisecond) ;
+
+        this._isRecording = false;
+        this.encoder?.flush().then(() => {
+            this.encoder?.close();
+
+            this.recording.forEach((chunk: EncodedVideoChunk) => {
+                let ab = new ArrayBuffer(chunk.byteLength);
+                chunk.copyTo(ab);
+                if (this.track === null) {
+                    this.track = this.file.addTrack({
+                        timescale: (oneSecondInMillisecond * timescale),
+                        width: this.width,
+                        height: this.height,
+                        nb_samples: totalFrames,
+                        avcDecoderConfigRecord: this.description });
+                }
+                this.file.addSample(this.track, ab, {
+                    duration: (frameTimeInMillisecond * timescale),
+                    dts: chunk.timestamp,
+                    cts: chunk.timestamp,
+                    is_sync: (chunk.type === 'key')
+                });
+            });
+            if (saveas) {
+                this.saveFile(saveas);
+            }
+        });
+    }
+
+    public saveFile(saveas: string) {
+        if (this.file) {
+            this.file.save(`${saveas}.mp4`);
+            return true;
+        } else {
+            console.warn('Cannot save file because no file was created/recorded');
+            return false;
+        }
+    }
+```
+
+The first step is to flush our encoder. Maybe we've stopped encoding canvas frames, but that doesn't mean
+there aren't any lingering frames in our encoder waiting for more to come so the set can be encoded and create a
+`EncodedVideoChunk`. So we wait for a flush, and while we're waiting, more frames might be appended to our array
+as they come through via our encoder callback.
+
+The next steps....well MP4Box has a bit of a complicated API. We're adding samples for each `EncodedVideoChunk`
+in our array. We're also making sure a video track is present to add those samples to. Basically
+our chunk is being converted into a format that's compatible with MP4Box (keyframes, timestamps and all).
+It can be a little foreign to look at if you don't know the underlying specifications of MP4 files (I certainly don't).
+
+After that, MP4Box has a nice little method to save the file. Just call `file.save(myfilename.mp4)` and you're done!
+
+## Using `recordable-canvas`
+
+I won't get into much about using this component. I mentioned the documentation and demos in the [repo](https://github.com/Web-Components-in-Space/recordable-canvas),
+but the most basic usage is to set it up like this:
+
+```
+<recordable-canvas width="300" height="300"></recordable-canvas>
+<script>
+    import 'recordable-canvas';
+    const canvas = document.body.querySelector('recordable-canvas');
+    canvas.addEventListener('ready', () => { ...
+</script>
+```
+
+Once the component is "ready", start doing whatever canvas operations you like with it!
+But to start/stop recording, simply call `startRecording` and `stopRecording` on the element,
+and call `encodeFrame` whenever you want to take a snapshot to encode the video frame.
+
+I should call out that this was a small and not so comprehensive project on my part. I did it because
+I wanted to record some WebGL shaders that I asked ChatGPT to make. That was a whole ordeal you can see here.
+
+When I was browsing NPM for similar projects I do see that [this one](https://github.com/dmnsgn/canvas-record) looks wayyyyy better! It's not a Web
+Component, but it's similar in what it does. `Canvas-record` seems to offer several different ways to
+encode your recordings including a WASM one which should be super speedy!
+
+Whichever one you record with, my main goal here was to talk a little bit about Web Codecs and Web Components.
+Hope you found this useful!
