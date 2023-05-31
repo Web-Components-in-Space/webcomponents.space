@@ -1,5 +1,5 @@
 ---
-pubDatetime: 2023-05-07T15:00:00
+pubDatetime: 2023-05-30T15:00:00
 title: Record your Canvas with Web Components
 postSlug: canvasrecording
 featured: true
@@ -22,8 +22,9 @@ Whatever you use the canvas for, you're escaping the normal document object mode
 your pixels by hand (or triangles if you're going 3D).
 
 Using the canvas can be a ton of fun. You can just draw and draw and draw. Or it can be infuriating, especially
-when your shader code can't compile. Don't believe me? Check out my latest attempt trying to get ChatGPT to make
-shaders for me.
+when your shader code can't compile. Don't believe me? [Check out my latest attempt](https://youtu.be/80y8WjQ1d7o) trying to get ChatGPT to make
+shaders for me. In fact, I was having ChatGPT (both successfully and unsuccessfully) make several shaders I'd use for
+various video interviews.
 
 But when you have something working, the results can be downright compelling! Whether you planned
 every pixel perfectly, or you created some happy accidents that animate gorgeously.
@@ -299,8 +300,9 @@ Once the component is "ready", start doing whatever canvas operations you like w
 But to start/stop recording, simply call `startRecording` and `stopRecording` on the element,
 and call `encodeFrame` whenever you want to take a snapshot to encode the video frame.
 
-I should call out that this was a small and not so comprehensive project on my part. I did it because
-I wanted to record some WebGL shaders that I asked ChatGPT to make. That was a whole ordeal you can see here.
+I should call out that this was a small and not so comprehensive project on my part. Again, I did it because
+I wanted to record some WebGL shaders that I asked ChatGPT to make and use them for my video series at [webcomponents.space](https://webcomponents.space).
+That was a whole ordeal you can see [here on YouTube](https://youtu.be/80y8WjQ1d7o) :)
 
 When I was browsing NPM for similar projects I do see that [this one](https://github.com/dmnsgn/canvas-record) looks wayyyyy better! It's not a Web
 Component, but it's similar in what it does. `Canvas-record` seems to offer several different ways to
